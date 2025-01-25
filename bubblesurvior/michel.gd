@@ -1,4 +1,4 @@
-extends "res://scripts/enemies/enemy.gd"
+extends Enemy
 
 func _process(delta: float) -> void:
 	position.x += - vitesse * delta * direction.normalized()[0]
