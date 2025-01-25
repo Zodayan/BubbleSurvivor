@@ -13,8 +13,9 @@ func _process(delta: float) -> void:
 	position.x += 10
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
+	timer.start(0.5)
 	pistolet.play("tape")
-
+	
 	var scene_manager: SceneManager = CustomSceneTree.getInstance()._sceneManager
 	var player_manager: PlayerManager = CustomSceneTree.getInstance()._playerManager
 	var enemy_manager: EnnemyManager = CustomSceneTree.getInstance()._ennemyManager

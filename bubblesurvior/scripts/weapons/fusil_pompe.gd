@@ -13,6 +13,7 @@ func _init() -> void:
 
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
+	
 	var player_manager: PlayerManager = CustomSceneTree.getInstance()._playerManager
 	var ennemi_plus_proche: Enemy = CustomSceneTree.getInstance()._ennemyManager._nearest_enemy(player_manager.pos)
 	var direction_initiale_projectile: Vector2
