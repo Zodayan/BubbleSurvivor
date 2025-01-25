@@ -13,9 +13,6 @@ func calculMovement() -> Vector2:
 	var deplacementX = Input.get_action_strength("right") - Input.get_action_strength("left"); #input en forme de string c'est degeulasse
 	# le mouvement sur l'axe des Y
 	var deplacementY = Input.get_action_strength("down") - Input.get_action_strength("up");
-	
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
 	# Le vecteur de mouvement (X,Y)
 	return Vector2(deplacementX,deplacementY);
 	
@@ -34,6 +31,9 @@ func _physics_process(_delta):
 	 #normalized-> vitesse constante meme en diagonale
 	move_and_slide();
 	CustomSceneTree.getInstance()._playerManager.pos = self.position
+	
+	if Input.is_action_pressed("shoot"):
+		shoot()
 	
 func dealDamage(damage : float):
 	
