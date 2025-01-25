@@ -22,12 +22,14 @@ func addScene(path : String):
 func clearLevel():
 	
 	#Suppression de toute les scènes du scèneTree
+	_tree._playerManager.delCharacter()
+	_tree._weaponManager.delWeapon()	
 	
 	for child in _tree.root.get_children() :
 		
 		if !(child.is_class("EnnemyManager")||child.is_class("PlayerManager")||child.is_class("WeaponManager")||child.is_class("SceneManager")) :
 		
 			_tree.root.remove_child(child)
+			
 	
-	_tree._playerManager.playerBody = null 
-	_tree._weaponManager._weapon = null		
+	
