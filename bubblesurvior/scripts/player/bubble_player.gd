@@ -1,5 +1,7 @@
 extends CharacterBody2D	
 
+@onready var timer = $Timer
+
 func calculMovement() -> Vector2: 
 	# le mouvement sur l'axe des X
 	var deplacementX = Input.get_action_strength("right") - Input.get_action_strength("left"); #input en forme de string c'est degeulasse
@@ -22,3 +24,37 @@ func _physics_process(_delta):
 	velocity = movement.normalized()*speed;
 	 #normalized-> vitesse constante meme en diagonale
 	move_and_slide();
+	
+func dealDamage(damage : float):
+	
+	CustomSceneTree.getInstance()._playerManager.hp -= damage
+	if CustomSceneTree.getInstance()._playerManager.hp <= 0 :
+		death()
+	scaleBubble()
+	
+func heal(heal : float):
+	
+	CustomSceneTree.getInstance()._playerManager.hp += heal
+	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
+		overcharge()
+	scaleBubble()
+	#Modifier barre de vie ?
+
+func overcharge():
+	
+	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHpOvercharge :
+		$Timer.start()
+
+func _on_timer_timeout():
+	
+	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHpOvercharge :
+		death()		
+
+func scaleBubble():
+	
+	self.scale * (CustomSceneTree.getInstance()._playerManager.hp/100)	
+
+func death():
+	
+	print("i'm dead")
+			
