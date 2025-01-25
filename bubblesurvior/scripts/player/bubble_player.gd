@@ -60,9 +60,6 @@ func _on_timer_timeout():
 	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
 		death()		
 
-func refreshHpBar():
-	%hpBar.value = CustomSceneTree.getInstance()._playerManager.hp
-	
 
 func scaleBubble():
 	
@@ -73,5 +70,7 @@ func death():
 	print("i'm dead")
 			
 func shoot() :
+	
+	var posMouse : Vector2 =  get_viewport().get_mouse_position()
 	
 	pass
