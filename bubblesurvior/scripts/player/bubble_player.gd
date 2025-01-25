@@ -10,10 +10,13 @@ func calculMovement() -> Vector2:
 	
 func _physics_process(_delta):
 	
+	#calcul du vecteur direction
 	var movement : Vector2 = calculMovement()
 	
+	#Récupération de la game Loop
 	var _SceneTree : CustomSceneTree = CustomSceneTree.getInstance()
 	
+	#Accès à la vitesse définie dans le manager
 	var speed : float = _SceneTree._playerManager.speed
 	
 	velocity = movement.normalized()*speed;
