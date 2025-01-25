@@ -1,14 +1,16 @@
 class_name CustomSceneTree
 extends SceneTree
 
-#Instance du LevelManager qui gère les scènes affichées à l'écran
-var _levelManager : LevelManager 
+#Instance du SceneManager qui gère les scènes affichées à l'écran
+var _sceneManager : SceneManager 
 #Instance de PlayerManager : gère les stats du joueurs
 var _playerManager : PlayerManager 
 
 var _weaponManager : WeaponManager
 
 var _ennemyManager : EnnemyManager
+
+var listManager : Array 
 
 #Instance de la mainLoop
 static var _instance : CustomSceneTree
@@ -27,9 +29,9 @@ func _initialize():
 	_instance = self
 	
 	#Initialisation du LevelManager
-	_levelManager = LevelManager.new()
-	root.add_child(_levelManager)
-	_levelManager._initialize()
+	_sceneManager = SceneManager.new()
+	root.add_child(_sceneManager)
+	_sceneManager._initialize()
 	
 	#Initialisation du PlayerManager
 	_playerManager = PlayerManager.new()
@@ -44,20 +46,7 @@ func _initialize():
 	root.add_child(_ennemyManager)
 	_ennemyManager._initialize()
 
-	
-	#Initialisation Joueur
-	
-	var player = ResourceLoader.load("res://scenes/bubblePlayer.tscn").instantiate()
-	_playerManager.changeCharacter(player)
-	
-	#Initialisation de l'arme
-	var arme = ResourceLoader.load("res://scenes/pistolet.tscn").instantiate()
-	_weaponManager.changeWeapon(arme)
-	
-	#Initialisation des scénes de bases
-	
-	for i in range(20):
-		_levelManager.addScene("res://scenes/michel.tscn")
+	startGame()
 	
 	print("Initialized:")
 	print("  Starting time: %s" % str(time_elapsed))
@@ -70,3 +59,30 @@ func _process(delta):
 func _finalize():
 	print("Finalized:")
 	print("  End time: %s" % str(time_elapsed))
+
+func startGame():
+	
+	
+	#Initialisation Joueur
+	_playerManager.resetStat()
+	
+	var player = ResourceLoader.load("res://scenes/bubblePlayer.tscn").instantiate()
+	_playerManager.changeCharacter(player)
+	
+	#Initialisation de l'arme
+	var arme = ResourceLoader.load("res://scenes/pistolet.tscn").instantiate()
+	_weaponManager.changeWeapon(arme)
+	
+	#Initialisation des scénes de bases
+	
+	var data : DL1 = DL1.new()
+	
+	_ennemyManager.listEnnemy = data.liste_ennemis
+	_ennemyManager.nbToKill = data.score_pour_boss
+	_ennemyManager.boss = "res://scenes/gros_michel.tscn"
+	
+	_ennemyManager.resetSpawner()
+	
+func gameOver():
+	_sceneManager.clearLevel()
+	_sceneManager.addScene("res://scenes/DeathMenu.tscn")

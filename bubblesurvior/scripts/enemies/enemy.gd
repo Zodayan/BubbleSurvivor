@@ -35,7 +35,7 @@ func heal(heal_value: float):
 		pv = pv_max
 		
 func death():
-	print("monster dead")
+	CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
 	queue_free()
 	
 func gerer_deplacement(delta: float) -> void:
@@ -62,7 +62,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_class("CharacterBody2D"):
 		is_collision_joueur = true
 		player_body = body
-		
+
 func _on_body_exited(body: Node2D) -> void:
 	
 	if body.is_class("CharacterBody2D"):

@@ -15,7 +15,7 @@ var speed : float = 240
 
 #Character(Scene) :
 
-var playerBody : CharacterBody2D
+var playerBody : BubblePlayer
 
 func _initialize():
 	
@@ -28,10 +28,11 @@ func resetStat():
 	
 	hp = 50
 	damage = 10	
-	speed = 60
+	speed = 240
+	pos = Vector2(0,0)
 	
 func changeCharacter(player : CharacterBody2D):
 	if playerBody :
-		_tree.root.remove(playerBody)
+		_tree.root.remove_child(playerBody)
 	playerBody = player
 	_tree.root.add_child(playerBody)

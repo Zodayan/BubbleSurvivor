@@ -4,7 +4,7 @@ class_name Weapon
 var degats: float = 1
 var vitesse_tir: float = 1 # Nb de tirs/seconde
 var cout_tir: float = 1
-var timer_dernier_tir: float = 0
+var timer_dernier_tir: float = 1 / vitesse_tir
 
 func _process(delta: float) -> void:
 	var player: BubblePlayer = CustomSceneTree.getInstance()._playerManager.playerBody
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func tirer() -> void:
 	if timer_dernier_tir >= 1/vitesse_tir:
 		timer_dernier_tir = 0
-		CustomSceneTree.getInstance()._playerManager.deal_damage(cout_tir)
+		CustomSceneTree.getInstance()._playerManager.playerBody.dealDamage(cout_tir)
 		action_tirer()
 	
 # A potentiellement toucher avec héritage
