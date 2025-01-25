@@ -40,7 +40,16 @@ func _physics_process(_delta):
 	
 	if Input.is_action_pressed("shoot"):
 		shoot()
+		
+	if Input.is_action_pressed("changeWeaponshoot"):
+		nextWeapon()
 	
+func nextWeapon():
+	CustomSceneTree.getInstance()._weaponManager.nextWeapon()
+
+func prevWeapon():
+	CustomSceneTree.getInstance()._weaponManager.prevWeapon()
+
 func dealDamage(damage : float):
 	
 	CustomSceneTree.getInstance()._playerManager.hp -= damage
