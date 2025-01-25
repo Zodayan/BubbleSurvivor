@@ -9,8 +9,8 @@ var timer_dernier_tir: float = 1 / vitesse_tir
 func _process(delta: float) -> void:
 	var player: BubblePlayer = CustomSceneTree.getInstance()._playerManager.playerBody
 	position = player.position
-	var player_sprite: Sprite2D = player.get_child(2)
-	position.x += player_sprite.texture.get_width() * player_sprite.scale.x / 2
+	var player_sprite: AnimatedSprite2D = player.get_child(2)
+	position.x += player_sprite.global_scale[0] * player_sprite.scale.x / 2
 	timer_dernier_tir += delta
 
 # A ne pas toucher en avec héritage

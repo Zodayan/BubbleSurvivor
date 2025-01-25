@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name BubblePlayer
 
 @onready var timer = $Timer
+@onready var sprite = $BubbleSprite
+
 var deplacementX: float = 0
 var deplacementY: float = 0
 
@@ -65,7 +67,8 @@ func _on_timer_timeout():
 
 func scaleBubble():
 	
-	self.scale = Vector2(1,1)*CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp*2	
+	sprite.scale = Vector2(1,1)*CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp*2	
+	
 
 func death():
 	
