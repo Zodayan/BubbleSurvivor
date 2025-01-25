@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dif2hvocbma0t" path="res://assets/sprite/michel.jpg" id="2_iyqus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
-size = Vector2(26, 30)
+size = Vector2(64, 74)
 
 [node name="Gros_michel" type="Area2D"]
 script = ExtResource("1_hg3ck")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5.96046e-08, 0)
-scale = Vector2(0.133333, 0.133333)
+scale = Vector2(0.314286, 0.314286)
 texture = ExtResource("2_iyqus")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

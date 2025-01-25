@@ -7,6 +7,8 @@
 size = Vector2(26, 30)
 
 [node name="Michel" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_64ld3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,6 +19,5 @@ texture = ExtResource("2_4rtfk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mal4w")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

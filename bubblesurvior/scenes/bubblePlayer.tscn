@@ -9,6 +9,8 @@ radius = 26.0192
 
 [node name="BubblePlayer" type="CharacterBody2D"]
 z_index = 1
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_afnlq")
 
 [node name="BubbleCamera" type="Camera2D" parent="."]
