@@ -5,8 +5,8 @@ extends Node
 var _tree : CustomSceneTree
 
 const listEnnemy = [
-	"",
-	""]
+	"res://scenes/michel.tscn"
+	]
 
 var counterEnnemy : int =0
 
@@ -14,10 +14,11 @@ const listBoss = [
 	"",
 	""
 ]
+var counterBoss : int =0
 
 var wave = []
 
-var counterBoss : int =0
+var isBoss : bool = false;
 
 func _initialize():
 	
@@ -29,7 +30,11 @@ func _process(delta: float):
 	pass	
 
 func _spawnEnnemy():
-	pass
+	var ennemy = ResourceLoader.load(listEnnemy[counterEnnemy]).instantiate()
+	_tree.root.add_child(ennemy)
+	wave.append(ennemy)
 
 func _spawnBoss():
-	pass	
+	var boss = ResourceLoader.load(listBoss[counterBoss]).instantiate()
+	_tree.root.add_child(boss)
+	wave.append(boss)
