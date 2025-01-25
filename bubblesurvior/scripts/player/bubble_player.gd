@@ -35,7 +35,7 @@ func dealDamage(damage : float):
 	
 func heal(healValue : float):
 	
-	CustomSceneTree.getInstance()._playerManager.hp += heal
+	CustomSceneTree.getInstance()._playerManager.hp += healValue
 	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
 		overcharge()
 	scaleBubble()
@@ -53,7 +53,7 @@ func _on_timer_timeout():
 
 func scaleBubble():
 	
-	self.scale * (CustomSceneTree.getInstance()._playerManager.hp/100)	
+	self.scale *= (CustomSceneTree.getInstance()._playerManager.hp/100)	
 
 func death():
 	
