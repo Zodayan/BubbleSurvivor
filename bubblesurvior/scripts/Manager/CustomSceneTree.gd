@@ -1,8 +1,8 @@
 class_name CustomSceneTree
 extends SceneTree
 
-#Instance du LevelManager qui gère les scènes affichées à l'écran
-var _levelManager : LevelManager 
+#Instance du SceneManager qui gère les scènes affichées à l'écran
+var _levelManager : SceneManager 
 #Instance de PlayerManager : gère les stats du joueurs
 var _playerManager : PlayerManager 
 
@@ -27,7 +27,7 @@ func _initialize():
 	_instance = self
 	
 	#Initialisation du LevelManager
-	_levelManager = LevelManager.new()
+	_levelManager = SceneManager.new()
 	root.add_child(_levelManager)
 	_levelManager._initialize()
 	
