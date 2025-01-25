@@ -7,7 +7,6 @@ var penetration: int = 1
 var arme_associee = Weapon
 
 func _on_area_entered(area: Area2D) -> void:
-	print("michel")
 	# Si on touche un ennemi, on lui inflige des dégats
 	if area.is_class("Enemy"):
 		var ennemi_touche: Enemy = area

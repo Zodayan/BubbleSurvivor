@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://brh4blu4625qq"]
 
-[ext_resource type="Script" path="res://michel.gd" id="1_64ld3"]
+[ext_resource type="Script" path="res://scripts/enemies/michel.gd" id="1_64ld3"]
 [ext_resource type="Texture2D" uid="uid://dif2hvocbma0t" path="res://assets/sprite/michel.jpg" id="2_4rtfk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
@@ -17,5 +17,6 @@ texture = ExtResource("2_4rtfk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mal4w")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
