@@ -33,7 +33,8 @@ func _initialize():
 	
 	#Initialisation des scénes de bases
 	_levelManager.addScene("res://scenes/bubblePlayer.tscn")
-	_levelManager.addScene("res://scenes/michel.tscn")
+	for i in range(20):
+		_levelManager.addScene("res://scenes/michel.tscn")
 	
 	print("Initialized:")
 	print("  Starting time: %s" % str(time_elapsed))

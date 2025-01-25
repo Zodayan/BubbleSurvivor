@@ -1,4 +1,5 @@
 extends CharacterBody2D	
+class_name BubblePlayer
 
 @onready var timer = $Timer
 
@@ -55,6 +56,10 @@ func _on_timer_timeout():
 	
 	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
 		death()		
+
+func refreshHpBar():
+	%hpBar.value = CustomSceneTree.getInstance()._playerManager.hp
+	
 
 func scaleBubble():
 	
