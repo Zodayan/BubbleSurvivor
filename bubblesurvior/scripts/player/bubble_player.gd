@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 @onready var timer = $Timer
 
+func _initialize():
+	
+	scaleBubble()
+	
+
 func calculMovement() -> Vector2: 
 	# le mouvement sur l'axe des X
 	var deplacementX = Input.get_action_strength("right") - Input.get_action_strength("left"); #input en forme de string c'est degeulasse
