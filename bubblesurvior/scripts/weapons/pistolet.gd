@@ -21,7 +21,6 @@ func action_tirer() -> void:
 	nouveau_projectile.arme_associee = self
 	
 	# L'arme vise automatiquement l'ennemi le plus proche
-	var ennemi_plus_proche: Enemy = enemy_manager._nearest_enemy(position)
 	if ennemi_plus_proche:
 		nouveau_projectile.direction = ennemi_plus_proche.position - position
 	else:
