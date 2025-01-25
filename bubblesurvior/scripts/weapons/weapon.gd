@@ -4,7 +4,7 @@ class_name Weapon
 var degats: float = 1
 var vitesse_tir: float = 1 # Nb de tirs/seconde
 var cout_tir: float = 1
-var timer_dernier_tir: float = 0
+var timer_dernier_tir: float = 1 / vitesse_tir
 
 func _process(delta: float) -> void:
 	var player: BubblePlayer = CustomSceneTree.getInstance()._playerManager.playerBody
