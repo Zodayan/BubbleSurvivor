@@ -37,7 +37,8 @@ func heal(heal_value: float):
 		
 func death():
 	CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
-	#CustomSceneTree.getInstance()._sceneManager.addScene("res://scenes/heal.tscn")
+	var nouveau_heal: Heal = CustomSceneTree.getInstance()._sceneManager.addScene("res://scenes/heal.tscn")
+	nouveau_heal.position = position
 	queue_free()
 	
 func gerer_deplacement(delta: float) -> void:

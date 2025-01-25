@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://co37v356xovil"]
+[gd_scene load_steps=4 format=3 uid="uid://co37v356xovil"]
 
-[node name="heal" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/heal.gd" id="1_6xo3f"]
+[ext_resource type="Texture2D" uid="uid://c3y7gydo38gau" path="res://assets/sprite/tiles/Room_Builder_free_32x32.png" id="2_e7can"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nhkl"]
+size = Vector2(14, 18)
+
+[node name="heal" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_6xo3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0257353, 0.0257353)
+texture = ExtResource("2_e7can")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_5nhkl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

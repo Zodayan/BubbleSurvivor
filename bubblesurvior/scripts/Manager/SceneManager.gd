@@ -17,6 +17,8 @@ func addScene(path : String):
 	#Ajout de la scène au SceneTree
 	_tree.root.add_child(scene)
 	
+	return scene
+	
 func clearLevel():
 	
 	#Suppression de toute les scènes du scèneTree
