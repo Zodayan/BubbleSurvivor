@@ -4,7 +4,7 @@ extends Node
 var _tree : CustomSceneTree
 
 var _weapon : Weapon
-var listWeapon = [
+const listWeapon = [
 "",
 "",
 "",

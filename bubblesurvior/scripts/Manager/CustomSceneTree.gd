@@ -8,6 +8,8 @@ var _playerManager : PlayerManager
 
 var _weaponManager : WeaponManager
 
+var _ennemyManager : EnnemyManager
+
 #Instance de la mainLoop
 static var _instance : CustomSceneTree
 
@@ -37,6 +39,11 @@ func _initialize():
 	_weaponManager = WeaponManager.new()
 	root.add_child(_weaponManager)
 	_weaponManager._initialize()
+	
+	_ennemyManager = EnnemyManager.new()
+	root.add_child(_ennemyManager)
+	_ennemyManager._initialize()
+
 	
 	#Initialisation Joueur
 	
