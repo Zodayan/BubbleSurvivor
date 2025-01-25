@@ -2,7 +2,7 @@ class_name CustomSceneTree
 extends SceneTree
 
 #Instance du SceneManager qui gère les scènes affichées à l'écran
-var _levelManager : SceneManager 
+var _sceneManager : SceneManager 
 #Instance de PlayerManager : gère les stats du joueurs
 var _playerManager : PlayerManager 
 
@@ -27,9 +27,9 @@ func _initialize():
 	_instance = self
 	
 	#Initialisation du LevelManager
-	_levelManager = SceneManager.new()
-	root.add_child(_levelManager)
-	_levelManager._initialize()
+	_sceneManager = SceneManager.new()
+	root.add_child(_sceneManager)
+	_sceneManager._initialize()
 	
 	#Initialisation du PlayerManager
 	_playerManager = PlayerManager.new()
@@ -57,7 +57,7 @@ func _initialize():
 	#Initialisation des scénes de bases
 	
 	for i in range(20):
-		_levelManager.addScene("res://scenes/michel.tscn")
+		_sceneManager.addScene("res://scenes/michel.tscn")
 	
 	print("Initialized:")
 	print("  Starting time: %s" % str(time_elapsed))
