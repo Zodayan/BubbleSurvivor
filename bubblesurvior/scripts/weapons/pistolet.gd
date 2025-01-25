@@ -4,14 +4,17 @@ extends Weapon
 
 func _init() -> void:
 	degats = 10
+	vitesse_tir = 5
+	cout_tir = 1
 
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
 	
 	var nouveau_projectile: ProjectileSimple = projectile_scene.instantiate()
-	nouveau_projectile.arme_associee = self
-	# L'arme vise automatiquement l'ennemi le plus proche
 	var ennemi_plus_proche: Enemy = CustomSceneTree.getInstance()._ennemyManager._nearest_enemy(position)
+	nouveau_projectile.arme_associee = self
+	
+	# L'arme vise automatiquement l'ennemi le plus proche
 	if ennemi_plus_proche:
 		nouveau_projectile.direction = ennemi_plus_proche.position - position
 	else:
