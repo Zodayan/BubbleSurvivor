@@ -41,8 +41,11 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
 		
-	if Input.is_action_pressed("changeWeaponshoot"):
+	if Input.is_action_pressed("nextWeaponshoot"):
 		nextWeapon()
+	
+	if Input.is_action_pressed("prevWeaponshoot"):
+		prevWeapon()
 	
 func nextWeapon():
 	CustomSceneTree.getInstance()._weaponManager.nextWeapon()
