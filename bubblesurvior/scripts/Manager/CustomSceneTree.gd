@@ -10,6 +10,8 @@ var _weaponManager : WeaponManager
 
 var _ennemyManager : EnnemyManager
 
+var listManager : Array 
+
 #Instance de la mainLoop
 static var _instance : CustomSceneTree
 
@@ -44,7 +46,24 @@ func _initialize():
 	root.add_child(_ennemyManager)
 	_ennemyManager._initialize()
 
+	startGame()
 	
+	print("Initialized:")
+	print("  Starting time: %s" % str(time_elapsed))
+
+func _process(delta):
+	time_elapsed += delta
+	# Return true to end the main loop.
+	
+
+func _finalize():
+	print("Finalized:")
+	print("  End time: %s" % str(time_elapsed))
+
+func startGame():
+	
+	listManager = [_sceneManager,_playerManager,_weaponManager,_ennemyManager]
+	_playerManager.resetStat()
 	#Initialisation Joueur
 	
 	var player = ResourceLoader.load("res://scenes/bubblePlayer.tscn").instantiate()
@@ -62,14 +81,8 @@ func _initialize():
 	_ennemyManager.nbToKill = data.score_pour_boss
 	_ennemyManager.boss = "res://scenes/gros_michel.tscn"
 	
-	print("Initialized:")
-	print("  Starting time: %s" % str(time_elapsed))
-
-func _process(delta):
-	time_elapsed += delta
-	# Return true to end the main loop.
 	
-
-func _finalize():
-	print("Finalized:")
-	print("  End time: %s" % str(time_elapsed))
+	
+func gameOver():
+	_sceneManager.clearLevel()
+	_sceneManager.addScene("res://scenes/DeathMenu.tscn")

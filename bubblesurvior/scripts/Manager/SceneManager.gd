@@ -20,7 +20,10 @@ func addScene(path : String):
 func clearLevel():
 	
 	#Suppression de toute les scènes du scèneTree
-	var children = _tree.root.get_children()
-	for child in children :
-		_tree.root.remove_child(child)
-		child.queue_free()
+	
+	for child in _tree.root.get_children() :
+		
+		if !(child.is_class("EnnemyManager")||child.is_class("PlayerManager")||child.is_class("WeaponManager")||child.is_class("SceneManager")) :
+		
+			_tree.root.remove_child(child)
+			
