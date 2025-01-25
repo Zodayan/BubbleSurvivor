@@ -66,7 +66,7 @@ func refreshHpBar():
 
 func scaleBubble():
 	
-	self.scale = CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp	
+	self.scale = Vector2(1,1)*CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp	
 
 func death():
 	
