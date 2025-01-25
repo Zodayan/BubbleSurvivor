@@ -16,6 +16,11 @@ func _initialize():
 	print("Player Manager init...")
 	_tree = CustomSceneTree.getInstance()
 	
+func resetStat():
 	
+	hp = 50
+	posx = 0
+	posy = 0
+	damage = 10	
 	
 	

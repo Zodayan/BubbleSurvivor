@@ -19,3 +19,34 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="BubbleSurvior"
+
+[input]
+
+up={
+"deadzone": 0.5,
+"events": []
+}
+down={
+"deadzone": 0.5,
+"events": []
+}
+left={
+"deadzone": 0.5,
+"events": []
+}
+right={
+"deadzone": 0.5,
+"events": []
+}
+shoot={
+"deadzone": 0.5,
+"events": []
+}
+changeWeapon={
+"deadzone": 0.5,
+"events": []
+}
+dash={
+"deadzone": 0.5,
+"events": []
+}
