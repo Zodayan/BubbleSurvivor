@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://csudlijaslgdg"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_w2k2d"]
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_w2k2d"]
 [ext_resource type="Texture2D" uid="uid://d2c5ay8c22fka" path="res://assets/sprite/Greyscale/16x16/bubble_1.png" id="2_807vs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6lcs6"]
