@@ -35,7 +35,6 @@ func heal(heal_value: float):
 		pv = pv_max
 		
 func death():
-	print("monster dead")
 	CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
 	queue_free()
 	
