@@ -5,8 +5,8 @@ var _tree : CustomSceneTree
 
 var _weapon : Weapon
 const listWeapon = [
+	"res://scenes/pistolet.tscn",
 	"res://scenes/fusil_pompe.tscn",
-	"res://scenes/pistolet.tscn"
 ]
 
 var currentWeapon : int = 0
@@ -32,18 +32,16 @@ func laodWeapon():
 		changeWeapon(weapon)
 
 func prevWeapon():
+	currentWeapon -= 1
 	if(currentWeapon <= 0):
 		currentWeapon = listWeapon.size()-1
-	else :
-		currentWeapon -= 1
 	
 	laodWeapon()
 
 func nextWeapon():
+	currentWeapon += 1
 	if(currentWeapon >= listWeapon.size()):
 		currentWeapon = 0
-	else :
-		currentWeapon += 1
 	
 	laodWeapon()
 

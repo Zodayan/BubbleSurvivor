@@ -41,10 +41,10 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
 		
-	if Input.is_action_pressed("nextWeaponshoot"):
+	if Input.is_action_just_pressed("nextWeapon"):
 		nextWeapon()
 	
-	if Input.is_action_pressed("prevWeaponshoot"):
+	if Input.is_action_just_pressed("prevWeapon"):
 		prevWeapon()
 	
 func nextWeapon():
