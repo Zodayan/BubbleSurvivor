@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dv51kh4el31"]
 
 [ext_resource type="Script" path="res://scripts/player/bubble_player.gd" id="1_afnlq"]
-[ext_resource type="Texture2D" uid="uid://6008ikby60uu" path="res://assets/sprite/Greyscale/512x512/bubble_7.png" id="2_qlha1"]
+[ext_resource type="Texture2D" uid="uid://crpx2cfq45itc" path="res://assets/sprite/Coloured/512x512/bubble_7.png" id="2_4dqas"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0so4"]
 radius = 26.0192
@@ -17,4 +17,4 @@ shape = SubResource("CircleShape2D_k0so4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_qlha1")
+texture = ExtResource("2_4dqas")

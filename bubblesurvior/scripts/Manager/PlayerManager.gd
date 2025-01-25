@@ -10,6 +10,7 @@ const maxHpOvercharge : float = 120
 var posx : float = 0
 var posy : float = 0
 var damage : float = 10
+var speed : float = 60 
 
 func _initialize():
 	
@@ -22,5 +23,6 @@ func resetStat():
 	posx = 0
 	posy = 0
 	damage = 10	
+	speed = 60
 	
 	
