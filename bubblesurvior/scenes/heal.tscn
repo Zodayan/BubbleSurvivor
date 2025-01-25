@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://co37v356xovil"]
+
+[node name="heal" type="Node2D"]
