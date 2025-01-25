@@ -48,9 +48,11 @@ func _physics_process(_delta):
 		prevWeapon()
 	
 func nextWeapon():
+	print("next")
 	CustomSceneTree.getInstance()._weaponManager.nextWeapon()
 
 func prevWeapon():
+	print("prev")
 	CustomSceneTree.getInstance()._weaponManager.prevWeapon()
 
 func dealDamage(damage : float):
