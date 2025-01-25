@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://scripts/player/player_uix.gd" id="3_ouqjc"]
 [ext_resource type="Texture2D" uid="uid://dcoohqrc2yujm" path="res://assets/sprite/Coloured/32x32/bubble_32px_4x1_left.png" id="4_r8cfe"]
 [ext_resource type="Texture2D" uid="uid://c2lnt01j1xbcp" path="res://assets/sprite/Coloured/32x32/bubble_32px_4x1_right.png" id="5_fmw41"]
-[ext_resource type="Texture2D" uid="uid://2ld56ns784qh" path="res://assets/sprite/Coloured/16x16/bubble_16px_4x1_left.png" id="6_8pqvp"]
-[ext_resource type="Texture2D" uid="uid://cudenq8uv1dwf" path="res://assets/sprite/Coloured/16x16/bubble_16px_4x1_right.png" id="7_uce8e"]
+[ext_resource type="Texture2D" uid="uid://cs1i3tb0cmfis" path="res://assets/sprite/Coloured/16x16/bubble_16px_4x1_left.png" id="6_8pqvp"]
+[ext_resource type="Texture2D" uid="uid://b315gdvqj2avg" path="res://assets/sprite/Coloured/16x16/bubble_16px_4x1_right.png" id="7_uce8e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0so4"]
 radius = 26.0192
@@ -250,3 +250,5 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 130.0
 offset_bottom = 25.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
