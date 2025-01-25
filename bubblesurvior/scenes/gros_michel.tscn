@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://f3l7btcikhng"]
 
-[ext_resource type="Script" path="res://scenes/gros_michel.gd" id="1_hg3ck"]
+[ext_resource type="Script" path="res://scripts/enemies/gros_michel.gd" id="1_hg3ck"]
 [ext_resource type="Texture2D" uid="uid://dif2hvocbma0t" path="res://assets/sprite/michel.jpg" id="2_iyqus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
