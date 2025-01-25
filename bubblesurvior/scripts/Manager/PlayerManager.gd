@@ -9,9 +9,9 @@ var hp : float = 50
 const maxHp : float = 100
 const minHp : float = 0
 const maxHpOvercharge : float = 120
-var pos : Vector2 
+var pos : Vector2
 var damage : float = 10
-var speed : float = 240
+var speed : float = 180
 
 #Character(Scene) :
 
@@ -28,7 +28,7 @@ func resetStat():
 	
 	hp = 50
 	damage = 10	
-	speed = 60
+	speed = 180
 	
 func changeCharacter(player : CharacterBody2D):
 	if playerBody :
