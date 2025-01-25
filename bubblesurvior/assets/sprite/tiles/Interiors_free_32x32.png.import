@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2ld56ns784qh"
-path="res://.godot/imported/bubble_16px_4x1_left.png-a30086e1743aec8ee10d8a399f8369f8.ctex"
+uid="uid://dliaxas1kijya"
+path="res://.godot/imported/Interiors_free_32x32.png-701e67187bc35939ab9831b7611c02cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/Coloured/16x16/bubble_16px_4x1_left.png"
-dest_files=["res://.godot/imported/bubble_16px_4x1_left.png-a30086e1743aec8ee10d8a399f8369f8.ctex"]
+source_file="res://assets/sprite/tiles/Interiors_free_32x32.png"
+dest_files=["res://.godot/imported/Interiors_free_32x32.png-701e67187bc35939ab9831b7611c02cf.ctex"]
 
 [params]
 

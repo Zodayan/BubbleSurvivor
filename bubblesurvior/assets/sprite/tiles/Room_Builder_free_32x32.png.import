@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cudenq8uv1dwf"
-path="res://.godot/imported/bubble_16px_4x1_right.png-448f0607e9e5b771d92ed3b008c19683.ctex"
+uid="uid://c3y7gydo38gau"
+path="res://.godot/imported/Room_Builder_free_32x32.png-b61f5a6a0ed5c90d214c3c8981fb205c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite/Coloured/16x16/bubble_16px_4x1_right.png"
-dest_files=["res://.godot/imported/bubble_16px_4x1_right.png-448f0607e9e5b771d92ed3b008c19683.ctex"]
+source_file="res://assets/sprite/tiles/Room_Builder_free_32x32.png"
+dest_files=["res://.godot/imported/Room_Builder_free_32x32.png-b61f5a6a0ed5c90d214c3c8981fb205c.ctex"]
 
 [params]
 
