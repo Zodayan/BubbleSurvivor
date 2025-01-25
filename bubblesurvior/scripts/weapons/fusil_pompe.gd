@@ -9,7 +9,7 @@ var envergure_tir = deg_to_rad(60)
 func _init() -> void:
 	degats = 10
 	vitesse_tir = 1
-	cout_tir = 3
+	cout_tir = 4
 
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:

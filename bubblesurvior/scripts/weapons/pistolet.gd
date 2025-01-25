@@ -6,7 +6,7 @@ extends Weapon
 func _init() -> void:
 	degats = 10
 	vitesse_tir = 5
-	cout_tir = 1
+	cout_tir = 1.5
 
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:

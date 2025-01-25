@@ -5,6 +5,8 @@ var vitesse: float = 200
 var direction: Vector2 = Vector2(1, 0)
 var penetration: int = 1
 var arme_associee = Weapon
+var distance_max: float = 300
+var distance: float = 0
 
 func _on_area_entered(area: Area2D) -> void:
 	# Si on touche un ennemi, on lui inflige des dégats
@@ -19,5 +21,11 @@ func _on_area_entered(area: Area2D) -> void:
 		queue_free()
 
 func _process(delta: float) -> void:
+	if distance >= distance_max:
+		queue_free()
+	distance += delta * vitesse
+	
 	position.x += direction.normalized().x * delta * vitesse
 	position.y += direction.normalized().y * delta * vitesse
+	
+	
