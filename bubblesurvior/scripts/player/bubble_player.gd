@@ -24,6 +24,7 @@ func _physics_process(_delta):
 	velocity = movement.normalized()*speed;
 	 #normalized-> vitesse constante meme en diagonale
 	move_and_slide();
+	CustomSceneTree.getInstance()._playerManager.pos = self.position
 	
 func dealDamage(damage : float):
 	
@@ -32,7 +33,7 @@ func dealDamage(damage : float):
 		death()
 	scaleBubble()
 	
-func heal(heal : float):
+func heal(healValue : float):
 	
 	CustomSceneTree.getInstance()._playerManager.hp += heal
 	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
