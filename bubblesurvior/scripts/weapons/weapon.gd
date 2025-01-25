@@ -9,7 +9,6 @@ var cout_tir: float = 1
 func tirer() -> void:
 	action_tirer()
 	
-
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
 	print("action Tirer")

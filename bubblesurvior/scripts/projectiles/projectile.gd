@@ -6,9 +6,6 @@ var direction: Vector2 = Vector2(1, 0)
 var penetration: int = 1
 var arme_associee = Weapon
 
-static func creerProjectile(arme: Weapon) -> void:
-	print("creerProjectile")
-
 func _on_body_enter(body: Node2D) -> void:
 	
 	# Si on touche un ennemi, on lui inflige des dégats
