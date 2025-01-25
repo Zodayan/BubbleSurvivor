@@ -75,7 +75,7 @@ func startGame():
 	_playerManager.changeCharacter(player)
 	
 	#Initialisation de l'arme
-	var arme = ResourceLoader.load("res://scenes/fusil_pompe.tscn").instantiate()
+	var arme = ResourceLoader.load("res://scenes/pistolet.tscn").instantiate()
 	_weaponManager.changeWeapon(arme)
 	
 	#Initialisation des scénes de bases

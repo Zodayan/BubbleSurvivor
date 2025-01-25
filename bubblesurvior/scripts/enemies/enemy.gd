@@ -12,6 +12,7 @@ var is_collision_joueur: bool = false
 var timer_collision: float = 0
 var player_body: BubblePlayer
 @onready var fleche_ennemy = $AnimatedSprite2D
+
 func _init() -> void:
 	# On fait apparaître l'ennemi autour du joueur
 	var angle: float = randf_range(0, 2*PI)
@@ -48,7 +49,7 @@ func gerer_deplacement(delta: float) -> void:
 	var direction_y: float = vitesse * delta * direction.normalized()[1]
 	if direction_x > 0:
 		fleche_ennemy.flip_h = true
-	if direction_x < 0:
+	if direction_x < 0: 
 		fleche_ennemy.flip_h = false
 		
 	if direction_y > 0: 
