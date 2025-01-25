@@ -8,6 +8,7 @@
 radius = 26.0192
 
 [node name="BubblePlayer" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_afnlq")
 
 [node name="BubbleCamera" type="Camera2D" parent="."]
@@ -17,7 +18,6 @@ zoom = Vector2(2, 2)
 shape = SubResource("CircleShape2D_k0so4")
 
 [node name="BubbleSprite" type="Sprite2D" parent="."]
-z_index = 1
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_4dqas")
 
