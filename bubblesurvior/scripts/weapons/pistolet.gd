@@ -5,4 +5,5 @@ func _init() -> void:
 
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
-	print("action Tirer")
+	var level_manager: LevelManager = CustomSceneTree.getInstance()._levelManager
+	level_manager.addScene("res://scenes/projectile_simple.tscn")
