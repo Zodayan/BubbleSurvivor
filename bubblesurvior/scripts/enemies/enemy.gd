@@ -36,7 +36,7 @@ func heal(heal_value: float):
 		
 func death():
 	print("monster dead")
-	CustomSceneTree.getInstance()._ennemyManager.wave.remove(self)
+	CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
 	queue_free()
 	
 func gerer_deplacement(delta: float) -> void:
