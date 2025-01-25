@@ -20,5 +20,5 @@ func _on_area_entered(area: Area2D) -> void:
 		queue_free()
 
 func _process(delta: float) -> void:
-	position.x += direction.x * delta * vitesse
-	position.y += direction.y * delta * vitesse
+	position.x += direction.normalized().x * delta * vitesse
+	position.y += direction.normalized().y * delta * vitesse

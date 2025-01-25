@@ -1,1 +1,2 @@
 extends Projectile
+class_name ProjectileSimple
