@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://f3l7btcikhng"]
+
+[ext_resource type="Script" path="res://scenes/gros_michel.gd" id="1_hg3ck"]
+[ext_resource type="Texture2D" uid="uid://dif2hvocbma0t" path="res://assets/sprite/michel.jpg" id="2_iyqus"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
+size = Vector2(26, 30)
+
+[node name="Gros_michel" type="Area2D"]
+script = ExtResource("1_hg3ck")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.96046e-08, 0)
+scale = Vector2(0.133333, 0.133333)
+texture = ExtResource("2_iyqus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mal4w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
