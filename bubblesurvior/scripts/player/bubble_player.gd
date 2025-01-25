@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name BubblePlayer
 
 @onready var timer = $Timer
+var deplacementX: float = 0
+var deplacementY: float = 0
 
 func _initialize():
 	
@@ -10,9 +12,9 @@ func _initialize():
 
 func calculMovement() -> Vector2: 
 	# le mouvement sur l'axe des X
-	var deplacementX = Input.get_action_strength("right") - Input.get_action_strength("left"); #input en forme de string c'est degeulasse
+	deplacementX = Input.get_action_strength("right") - Input.get_action_strength("left"); #input en forme de string c'est degeulasse
 	# le mouvement sur l'axe des Y
-	var deplacementY = Input.get_action_strength("down") - Input.get_action_strength("up");
+	deplacementY = Input.get_action_strength("down") - Input.get_action_strength("up");
 	# Le vecteur de mouvement (X,Y)
 	return Vector2(deplacementX,deplacementY);
 	
@@ -63,11 +65,12 @@ func _on_timer_timeout():
 
 func scaleBubble():
 	
-	self.scale = Vector2(1,1)*CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp	
+	self.scale = Vector2(1,1)*CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp*2	
 
 func death():
 	
 	print("i'm dead")
+	CustomSceneTree.getInstance().gameOver()
 			
 func shoot() :
 	

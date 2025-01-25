@@ -15,8 +15,9 @@ var player_body: BubblePlayer
 func _init() -> void:
 	# On fait apparaître l'ennemi autour du joueur
 	var angle: float = randf_range(0, 2*PI)
-	position = Vector2(	cos(angle) * randf_range(DISTANCE_APPARITION[0], DISTANCE_APPARITION[1]),
-						sin(angle) * randf_range(DISTANCE_APPARITION[0], DISTANCE_APPARITION[1]))
+	var player_manager: PlayerManager = CustomSceneTree.getInstance()._playerManager
+	position = Vector2(	player_manager.pos[0] + cos(angle) * randf_range(DISTANCE_APPARITION[0], DISTANCE_APPARITION[1]),
+						player_manager.pos[1] + sin(angle) * randf_range(DISTANCE_APPARITION[0], DISTANCE_APPARITION[1]))
 	
 func _process(delta: float) -> void:
 	
@@ -35,7 +36,6 @@ func heal(heal_value: float):
 		pv = pv_max
 		
 func death():
-	print("monster dead")
 	CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
 	queue_free()
 	
@@ -63,7 +63,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_class("CharacterBody2D"):
 		is_collision_joueur = true
 		player_body = body
-		
+
 func _on_body_exited(body: Node2D) -> void:
 	
 	if body.is_class("CharacterBody2D"):
