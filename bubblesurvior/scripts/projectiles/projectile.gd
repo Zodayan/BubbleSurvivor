@@ -8,6 +8,7 @@ var arme_associee = Weapon
 
 func _on_area_entered(area: Area2D) -> void:
 	# Si on touche un ennemi, on lui inflige des dégats
+	print(area)
 	if area.is_class("Enemy"):
 		var ennemi_touche: Enemy = area
 		ennemi_touche.deal_damage(arme_associee.degats)
