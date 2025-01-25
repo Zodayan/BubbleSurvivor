@@ -33,8 +33,8 @@ func laodWeapon():
 
 func prevWeapon():
 	currentWeapon -= 1
-	if(currentWeapon <= 0):
-		currentWeapon = listWeapon.size()-1
+	if(currentWeapon < 0):
+		currentWeapon = listWeapon.size() - 1
 	
 	laodWeapon()
 
