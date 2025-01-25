@@ -33,3 +33,9 @@ func nextWeapon():
 	var weapon = ResourceLoader.load(listWeapon[currentWeapon]).instantiate()
 	if weapon :
 		changeWeapon(weapon)
+
+func delWeapon():
+	if _weapon :
+		_tree.root.remove_child(_weapon)
+	_weapon.queue_free()
+	_weapon = null 
