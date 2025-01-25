@@ -3,6 +3,11 @@ class_name BubblePlayer
 
 @onready var timer = $Timer
 
+func _initialize():
+	
+	scaleBubble()
+	
+
 func calculMovement() -> Vector2: 
 	# le mouvement sur l'axe des X
 	var deplacementX = Input.get_action_strength("right") - Input.get_action_strength("left"); #input en forme de string c'est degeulasse
@@ -49,8 +54,12 @@ func overcharge():
 
 func _on_timer_timeout():
 	
-	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHpOvercharge :
+	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
 		death()		
+
+func refreshHpBar():
+	%hpBar.value = CustomSceneTree.getInstance()._playerManager.hp
+	
 
 func scaleBubble():
 	
