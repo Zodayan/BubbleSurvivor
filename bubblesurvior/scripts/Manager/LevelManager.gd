@@ -20,4 +20,7 @@ func addScene(path : String):
 func clearLevel():
 	
 	#Suppression de toute les scènes du scèneTree
-	_tree.root.queue_free()
+	var children = _tree.root.get_children()
+	for child in children :
+		_tree.root.remove_child(child)
+		child.queue_free()
