@@ -56,8 +56,11 @@ func _initialize():
 	
 	#Initialisation des scénes de bases
 	
-	for i in range(20):
-		_sceneManager.addScene("res://scenes/michel.tscn")
+	var data : DL1 = DL1.new()
+	
+	_ennemyManager.listEnnemy = data.liste_ennemis
+	_ennemyManager.nbToKill = data.score_pour_boss
+	_ennemyManager.boss = "res://scenes/gros_michel.tscn"
 	
 	print("Initialized:")
 	print("  Starting time: %s" % str(time_elapsed))

@@ -1,3 +1,4 @@
+class_name DL1
 extends Object
 
 var score_pour_boss: float = 200
