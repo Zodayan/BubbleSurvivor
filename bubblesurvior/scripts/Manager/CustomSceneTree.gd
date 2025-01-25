@@ -61,8 +61,7 @@ func _finalize():
 	print("  End time: %s" % str(time_elapsed))
 
 func startGame():
-	
-	
+		
 	#Initialisation Joueur
 	_playerManager.resetStat()
 	
@@ -74,6 +73,8 @@ func startGame():
 	_weaponManager.changeWeapon(arme)
 	
 	#Initialisation des scénes de bases
+	
+	_sceneManager.addScene("res://scenes/map.tscn")
 	
 	var data : DL1 = DL1.new()
 	

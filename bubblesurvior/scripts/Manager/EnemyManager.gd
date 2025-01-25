@@ -40,6 +40,9 @@ func _process(delta: float):
 			isBoss = true
 				
 		else :
+			
+			print("spawn an ennemy")
+			
 			var sum : float = 0
 			for ennemies in listEnnemy :
 				sum += ennemies[1]
@@ -51,6 +54,7 @@ func _process(delta: float):
 						
 					if(res <= enemies[1] && res > inf):
 						_spawnEnnemy(enemies[0])
+						print("Spawn !", enemies[0])
 					inf = enemies[1]
 					
 					
