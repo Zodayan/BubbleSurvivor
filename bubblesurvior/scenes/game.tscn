@@ -3,6 +3,3 @@
 [ext_resource type="PackedScene" path="res://scenes/map.tscn" id="1_vs7li"]
 
 [node name="Game" type="Node"]
-
-[node name="TileMapLayer" parent="." instance=ExtResource("1_vs7li")]
-position = Vector2(648, 384)

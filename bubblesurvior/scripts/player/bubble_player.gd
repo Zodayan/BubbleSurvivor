@@ -7,6 +7,8 @@ class_name BubblePlayer
 var deplacementX: float = 0
 var deplacementY: float = 0
 
+var timerStarted : bool = false
+
 func _initialize():
 	
 	scaleBubble()
@@ -51,7 +53,21 @@ func _physics_process(_delta):
 	
 	if Input.is_action_pressed("shoot"):
 		shoot()
+		
+	if Input.is_action_just_pressed("nextWeapon"):
+		nextWeapon()
 	
+	if Input.is_action_just_pressed("prevWeapon"):
+		prevWeapon()
+	
+func nextWeapon():
+	print("next")
+	CustomSceneTree.getInstance()._weaponManager.nextWeapon()
+
+func prevWeapon():
+	print("prev")
+	CustomSceneTree.getInstance()._weaponManager.prevWeapon()
+
 func dealDamage(damage : float):
 	
 	CustomSceneTree.getInstance()._playerManager.hp -= damage
@@ -70,12 +86,11 @@ func heal(healValue : float):
 func overcharge():
 	
 	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHpOvercharge :
-		$Timer.start()
-
-func _on_timer_timeout():
+		print("Explosion Incoming !!!")
+		if (!timerStarted) :	
+			$Timer.start()
+			timerStarted = true
 	
-	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
-		death()		
 
 
 func scaleBubble():
@@ -98,3 +113,10 @@ func shoot() :
 	
 	
 	pass
+
+
+func _on_timer_timeout() -> void:
+	
+	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
+		death()		 # Replace with function body.
+	timerStarted = false

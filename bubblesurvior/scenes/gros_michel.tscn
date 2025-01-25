@@ -1,21 +1,58 @@
-[gd_scene load_steps=4 format=3 uid="uid://f3l7btcikhng"]
+[gd_scene load_steps=9 format=3 uid="uid://ck4uh4bc1ltmf"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gros_michel.gd" id="1_hg3ck"]
-[ext_resource type="Texture2D" uid="uid://dif2hvocbma0t" path="res://assets/sprite/michel.jpg" id="2_iyqus"]
+[ext_resource type="Texture2D" uid="uid://b5e4xc05r2f1v" path="res://assets/sprite/ennemy/ennemy.png" id="2_plylw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
 size = Vector2(64, 74)
 
-[node name="Gros_michel" type="Area2D"]
-script = ExtResource("1_hg3ck")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn035"]
+atlas = ExtResource("2_plylw")
+region = Rect2(0, 0, 32, 32)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5.96046e-08, 0)
-scale = Vector2(0.314286, 0.314286)
-texture = ExtResource("2_iyqus")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpwei"]
+atlas = ExtResource("2_plylw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bet7o"]
+atlas = ExtResource("2_plylw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp5wb"]
+atlas = ExtResource("2_plylw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jt3ey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn035")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpwei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bet7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp5wb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gros_michel" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_hg3ck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mal4w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_jt3ey")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

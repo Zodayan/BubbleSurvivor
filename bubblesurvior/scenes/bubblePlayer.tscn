@@ -252,3 +252,5 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 130.0
 offset_bottom = 25.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

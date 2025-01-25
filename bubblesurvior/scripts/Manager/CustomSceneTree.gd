@@ -74,10 +74,6 @@ func startGame():
 	var player = ResourceLoader.load("res://scenes/bubblePlayer.tscn").instantiate()
 	_playerManager.changeCharacter(player)
 	
-	#Initialisation de l'arme
-	var arme = ResourceLoader.load("res://scenes/pistolet.tscn").instantiate()
-	_weaponManager.changeWeapon(arme)
-	
 	#Initialisation des scénes de bases
 	
 	_sceneManager.addScene("res://scenes/map.tscn")
