@@ -31,6 +31,8 @@ animations = [{
 }]
 
 [node name="pistolet" type="Node2D"]
+z_index = 10
+position = Vector2(1200, 0)
 script = ExtResource("1_0oqcf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -38,3 +40,7 @@ position = Vector2(-1.19209e-07, 0)
 sprite_frames = SubResource("SpriteFrames_vftww")
 animation = &"tape"
 autoplay = "default"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

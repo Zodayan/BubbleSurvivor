@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq7avc075svtr"]
+[gd_scene load_steps=3 format=3 uid="uid://c15oj07mpovfs"]
 
 [ext_resource type="Script" path="res://scripts/weapons/fusil_pompe.gd" id="1_mohbn"]
 [ext_resource type="Texture2D" uid="uid://dif2hvocbma0t" path="res://assets/sprite/michel.jpg" id="2_ofxwn"]
