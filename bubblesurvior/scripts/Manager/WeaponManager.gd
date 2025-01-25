@@ -20,7 +20,7 @@ func _initialize():
 	
 func changeWeapon(weapon):
 	if _weapon :
-		_tree.root.remove(_weapon)
+		_tree.root.remove_child(_weapon)
 	_weapon = weapon
 	_tree.root.add_child(_weapon)
 

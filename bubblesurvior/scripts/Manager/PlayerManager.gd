@@ -32,6 +32,6 @@ func resetStat():
 	
 func changeCharacter(player : CharacterBody2D):
 	if playerBody :
-		_tree.root.remove(playerBody)
+		_tree.root.remove_child(playerBody)
 	playerBody = player
 	_tree.root.add_child(playerBody)

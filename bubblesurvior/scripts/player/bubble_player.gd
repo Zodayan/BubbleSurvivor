@@ -70,6 +70,7 @@ func scaleBubble():
 func death():
 	
 	print("i'm dead")
+	CustomSceneTree.getInstance().gameOver()
 			
 func shoot() :
 	
