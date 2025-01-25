@@ -71,6 +71,7 @@ func death():
 			
 func shoot() :
 	
-	var posMouse : Vector2 =  get_viewport().get_mouse_position()
+	CustomSceneTree.getInstance()._weaponManager._weapon.tirer()
+	
 	
 	pass

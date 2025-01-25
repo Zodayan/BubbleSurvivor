@@ -15,7 +15,7 @@ var speed : float = 240
 
 #Character(Scene) :
 
-var playerBody : CharacterBody2D
+var playerBody : BubblePlayer
 
 func _initialize():
 	
