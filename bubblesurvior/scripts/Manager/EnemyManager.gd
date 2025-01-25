@@ -34,9 +34,10 @@ func _process(delta: float):
 		
 		timeElapsed = 0
 	
-		if killCount>nbToKill:
+		if killCount>nbToKill && !isBoss:
 			
 			_spawnBoss(boss)
+			isBoss = true
 				
 		else :
 			var sum : float = 0
@@ -83,3 +84,10 @@ func _nearest_enemy(pos: Vector2):
 			plus_proche = ennemi
 			
 	return plus_proche
+
+func resetSpawner():
+	nbToKill = 1000
+	killCount = 0
+	timeElapsed = 0
+	wave = []
+	isBoss = false;
