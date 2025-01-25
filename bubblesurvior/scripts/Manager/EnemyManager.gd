@@ -41,22 +41,17 @@ func _process(delta: float):
 				
 		else :
 			
-			print("spawn an ennemy")
-			
 			var sum : float = 0
 			for ennemies in listEnnemy :
 				sum += ennemies[1]
 			if sum > 0 :
-				print(sum)
 				var res : float = randf_range(0, sum)
-				print(res)
 				var inf : float = 0 
 				
 				for enemies in listEnnemy :
 						
 					if(res <= enemies[1]+inf && res > inf):
 						_spawnEnnemy(enemies[0])
-						print("Spawn !", enemies[0])
 					inf = enemies[1]
 						
 					

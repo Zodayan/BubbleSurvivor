@@ -68,7 +68,6 @@ func gerer_collision_joueur(delta: float) -> void:
 	if is_collision_joueur:
 		if timer_collision >= DELAI_DEGATS:
 			player_body.dealDamage(degats)
-			print("player hit")
 			timer_collision = 0
 	timer_collision += delta
 

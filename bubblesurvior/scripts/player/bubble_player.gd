@@ -12,6 +12,12 @@ var timerStarted : bool = false
 func _initialize():
 	
 	scaleBubble()
+		#calcul de la taille du player
+	var ratio = CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp
+	
+	#update de l'affichage du player
+	var direction = calculMovement()[0]
+	sprite.updateSprite(ratio, direction)	
 	
 
 func calculMovement() -> Vector2: 
@@ -27,6 +33,13 @@ func _physics_process(_delta):
 	#calcul du vecteur direction
 	var movement : Vector2 = calculMovement()
 	
+	#calcul de la taille du player
+	var ratio = CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp
+	
+	#update de l'affichage du player
+	var direction = movement[0]
+	sprite.updateSprite(ratio, direction)	
+	
 	#Récupération de la game Loop
 	var _SceneTree : CustomSceneTree = CustomSceneTree.getInstance()
 	
@@ -40,7 +53,21 @@ func _physics_process(_delta):
 	
 	if Input.is_action_pressed("shoot"):
 		shoot()
+		
+	if Input.is_action_just_pressed("nextWeapon"):
+		nextWeapon()
 	
+	if Input.is_action_just_pressed("prevWeapon"):
+		prevWeapon()
+	
+func nextWeapon():
+	print("next")
+	CustomSceneTree.getInstance()._weaponManager.nextWeapon()
+
+func prevWeapon():
+	print("prev")
+	CustomSceneTree.getInstance()._weaponManager.prevWeapon()
+
 func dealDamage(damage : float):
 	
 	CustomSceneTree.getInstance()._playerManager.hp -= damage
@@ -68,7 +95,11 @@ func overcharge():
 
 func scaleBubble():
 	
-	sprite.scale = Vector2(1,1)*CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp*2	
+	var direction = calculMovement()[0]
+	var ratio = CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp
+	var spSize = sprite.updateSprite(ratio, direction)
+	sprite.scale = Vector2(1,1)*ratio*(6-spSize)
+	
 	
 
 func death():
