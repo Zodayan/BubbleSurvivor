@@ -15,9 +15,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	direction = Vector2(CustomSceneTree.getInstance()._playerManager.pos - position)
+	
 	position.x += vitesse * delta * direction.normalized()[0]
 	position.y += vitesse * delta * direction.normalized()[1]
-	position.y = sin(float(Time.get_ticks_msec())/1000 * vitesse) * 10
 
 # Se déclenche quand le joueur rentre en collision avec la collision de ce sprite
 func _on_body_entered(body: Node2D) -> void:
