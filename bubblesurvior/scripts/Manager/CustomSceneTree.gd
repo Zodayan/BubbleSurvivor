@@ -5,6 +5,11 @@ extends SceneTree
 var _levelManager : LevelManager 
 #Instance de PlayerManager : gère les stats du joueurs
 var _playerManager : PlayerManager 
+
+var _weaponManager : WeaponManager
+
+var _ennemyManager : EnnemyManager
+
 #Instance de la mainLoop
 static var _instance : CustomSceneTree
 
@@ -31,8 +36,26 @@ func _initialize():
 	root.add_child(_playerManager)
 	_playerManager._initialize()
 	
+	_weaponManager = WeaponManager.new()
+	root.add_child(_weaponManager)
+	_weaponManager._initialize()
+	
+	_ennemyManager = EnnemyManager.new()
+	root.add_child(_ennemyManager)
+	_ennemyManager._initialize()
+
+	
+	#Initialisation Joueur
+	
+	var player = ResourceLoader.load("res://scenes/bubblePlayer.tscn").instantiate()
+	_playerManager.changeCharacter(player)
+	
+	#Initialisation de l'arme
+	var arme = ResourceLoader.load("res://scenes/pistolet.tscn").instantiate()
+	_weaponManager.changeWeapon(arme)
+	
 	#Initialisation des scénes de bases
-	_levelManager.addScene("res://scenes/bubblePlayer.tscn")
+	
 	for i in range(20):
 		_levelManager.addScene("res://scenes/michel.tscn")
 	

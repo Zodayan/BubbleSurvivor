@@ -11,7 +11,11 @@ const minHp : float = 0
 const maxHpOvercharge : float = 120
 var pos : Vector2 
 var damage : float = 10
-var speed : float = 60 
+var speed : float = 240
+
+#Character(Scene) :
+
+var playerBody : CharacterBody2D
 
 func _initialize():
 	
@@ -26,4 +30,8 @@ func resetStat():
 	damage = 10	
 	speed = 60
 	
-	
+func changeCharacter(player : CharacterBody2D):
+	if playerBody :
+		_tree.root.remove(playerBody)
+	playerBody = player
+	_tree.root.add_child(playerBody)
