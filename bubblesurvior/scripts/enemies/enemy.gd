@@ -3,7 +3,7 @@ class_name Enemy
 
 const DELAI_DEGATS: float = 1 #delais de 1s pour infliger à nouveau des dégats au joueur
 const DISTANCE_APPARITION: Array[float] = [200, 300]
-var vitesse: float = 10
+var vitesse: float = 30
 var pv_max: float = 10
 var pv: float = pv_max
 var degats: float = 5
@@ -23,6 +23,20 @@ func _process(delta: float) -> void:
 	gerer_deplacement(delta)
 	
 	gerer_collision_joueur(delta)
+	
+func deal_damage(damage: float) -> void:
+	pv -= damage
+	if pv <= 0 :
+		death()
+		
+func heal(heal_value: float):
+	pv += heal_value
+	if pv > pv_max:
+		pv = pv_max
+		
+func death():
+	print("monster dead")
+	queue_free()
 	
 func gerer_deplacement(delta: float) -> void:
 	# Par défaut les ennemis vont tout droit vers le joueur

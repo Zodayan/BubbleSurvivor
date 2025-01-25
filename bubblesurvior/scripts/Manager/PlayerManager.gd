@@ -11,7 +11,7 @@ const minHp : float = 0
 const maxHpOvercharge : float = 120
 var pos : Vector2 
 var damage : float = 10
-var speed : float = 60 
+var speed : float = 240
 
 #Character(Scene) :
 
