@@ -28,7 +28,8 @@ func resetStat():
 	
 	hp = 50
 	damage = 10	
-	speed = 60
+	speed = 240
+	pos = Vector2(0,0)
 	
 func changeCharacter(player : CharacterBody2D):
 	if playerBody :

@@ -62,9 +62,9 @@ func _finalize():
 
 func startGame():
 	
-	listManager = [_sceneManager,_playerManager,_weaponManager,_ennemyManager]
-	_playerManager.resetStat()
+	
 	#Initialisation Joueur
+	_playerManager.resetStat()
 	
 	var player = ResourceLoader.load("res://scenes/bubblePlayer.tscn").instantiate()
 	_playerManager.changeCharacter(player)
@@ -81,7 +81,7 @@ func startGame():
 	_ennemyManager.nbToKill = data.score_pour_boss
 	_ennemyManager.boss = "res://scenes/gros_michel.tscn"
 	
-	
+	_ennemyManager.resetSpawner()
 	
 func gameOver():
 	_sceneManager.clearLevel()

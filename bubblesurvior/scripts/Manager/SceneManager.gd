@@ -26,4 +26,6 @@ func clearLevel():
 		if !(child.is_class("EnnemyManager")||child.is_class("PlayerManager")||child.is_class("WeaponManager")||child.is_class("SceneManager")) :
 		
 			_tree.root.remove_child(child)
-			
+	
+	_tree._playerManager.playerBody = null 
+	_tree._weaponManager._weapon = null		
