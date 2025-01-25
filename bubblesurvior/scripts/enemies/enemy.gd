@@ -3,7 +3,7 @@ class_name Enemy
 
 const DELAI_DEGATS: float = 1 #delais de 1s pour infliger à nouveau des dégats au joueur
 const DISTANCE_APPARITION: Array[float] = [200, 300]
-var vitesse: float = 30
+var vitesse: float = 100
 var pv_max: float = 10
 var pv: float = pv_max
 var degats: float = 5
@@ -11,7 +11,7 @@ var direction: Vector2 = Vector2(1, 0)
 var is_collision_joueur: bool = false
 var timer_collision: float = 0
 var player_body: BubblePlayer
-	
+@onready var fleche_ennemy = $AnimatedSprite2D
 func _init() -> void:
 	# On fait apparaître l'ennemi autour du joueur
 	var angle: float = randf_range(0, 2*PI)
@@ -44,9 +44,22 @@ func death():
 func gerer_deplacement(delta: float) -> void:
 	# Par défaut les ennemis vont tout droit vers le joueur
 	direction = Vector2(CustomSceneTree.getInstance()._playerManager.pos - position)
+	var direction_x: float = vitesse * delta * direction.normalized()[0]
+	var direction_y: float = vitesse * delta * direction.normalized()[1]
+	if direction_x > 0:
+		fleche_ennemy.flip_h = true
+	if direction_x < 0:
+		fleche_ennemy.flip_h = false
+		
+	if direction_y > 0: 
+		fleche_ennemy.flip_v = true
+	if direction_y < 0:
+		fleche_ennemy.flip_v =false
 	
-	position.x += vitesse * delta * direction.normalized()[0]
-	position.y += vitesse * delta * direction.normalized()[1]
+	
+	
+	position.x += direction_x
+	position.y += direction_y
 	
 func gerer_collision_joueur(delta: float) -> void:
 	# Si le joueur est en collision avec cet ennemi et que ca fait plus d'une seconde que le joueur a subi des
