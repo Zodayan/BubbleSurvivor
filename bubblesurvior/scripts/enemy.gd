@@ -1,4 +1,5 @@
 extends Area2D
+class_name Enemy
 
 var vitesse = 1
 var pv_max = 10
@@ -16,4 +17,4 @@ func _process(delta: float) -> void:
 
 # Se déclenche quand le joueur rentre en collision avec la collision de ce sprite
 func _on_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	print(body.name)
