@@ -67,3 +67,19 @@ func _spawnBoss(path : String):
 func _ennemyKilled(ennemy : Enemy) :
 	wave.erase(ennemy)
 	killCount+=1
+
+func _nearest_enemy(pos: Vector2):
+	# On renvoie void si il n'y a pas d'ennemis dans la liste d'ennemis
+	if len(wave) == 0:
+		return
+		
+	# On va itérer sur la liste des ennemis sur la map pour trouver le plus proche du point d'entrée
+	var plus_proche: Enemy = wave[0]
+	var meilleure_dist: float = pos.distance_to(plus_proche.position)
+	
+	for ennemi in wave:
+		if pos.distance_to(ennemi.position) < meilleure_dist:
+			meilleure_dist = pos.distance_to(ennemi.position)
+			plus_proche = ennemi
+			
+	return plus_proche
