@@ -5,6 +5,7 @@ extends SceneTree
 var _levelManager : LevelManager 
 #Instance de PlayerManager : gère les stats du joueurs
 var _playerManager : PlayerManager 
+
 #Instance de la mainLoop
 static var _instance : CustomSceneTree
 
