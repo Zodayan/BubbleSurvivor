@@ -9,6 +9,7 @@ var direction: Vector2 = Vector2(1, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Enemy initialized")
 	pass # Replace with function body.
 
 
@@ -20,4 +21,5 @@ func _process(delta: float) -> void:
 
 # Se déclenche quand le joueur rentre en collision avec la collision de ce sprite
 func _on_body_entered(body: Node2D) -> void:
+	print("something collided")
 	print(body.name)

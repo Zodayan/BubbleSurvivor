@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://brh4blu4625qq"]
+
+[ext_resource type="Script" path="res://michel.gd" id="1_64ld3"]
+[ext_resource type="Texture2D" uid="uid://dmhhmxesb83i" path="res://assets/sprite/Greyscale/16x16/bubble_2.png" id="2_wilnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
+size = Vector2(70, 32)
+
+[node name="Michel" type="Area2D"]
+script = ExtResource("1_64ld3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wilnv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mal4w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
