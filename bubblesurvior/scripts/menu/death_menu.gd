@@ -2,7 +2,8 @@ extends Control
 
 
 func _on_restart_pressed() -> void:
-	CustomSceneTree.getInstance().startGame() # Replace with function body.
+	CustomSceneTree.getInstance().startGame()
+	self.queue_free() # Replace with function body.
 
 
 func _on_quit_pressed() -> void:

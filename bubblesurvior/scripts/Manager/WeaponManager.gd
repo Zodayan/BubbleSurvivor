@@ -37,4 +37,5 @@ func nextWeapon():
 func delWeapon():
 	if _weapon :
 		_tree.root.remove_child(_weapon)
+	_weapon.queue_free()
 	_weapon = null 
