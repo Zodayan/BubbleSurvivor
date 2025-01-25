@@ -53,7 +53,7 @@ func overcharge():
 
 func _on_timer_timeout():
 	
-	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHpOvercharge :
+	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
 		death()		
 
 func scaleBubble():
