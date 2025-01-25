@@ -1,4 +1,4 @@
-class_name LevelManager
+class_name SceneManager
 extends Node
 
 var _tree : CustomSceneTree
