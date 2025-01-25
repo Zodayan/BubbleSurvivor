@@ -2,8 +2,12 @@ extends CharacterBody2D
 class_name BubblePlayer
 
 @onready var timer = $Timer
+@onready var sprite = $BubbleSprite
+
 var deplacementX: float = 0
 var deplacementY: float = 0
+
+var timerStarted : bool = false
 
 func _initialize():
 	
@@ -55,17 +59,17 @@ func heal(healValue : float):
 func overcharge():
 	
 	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHpOvercharge :
-		$Timer.start()
-
-func _on_timer_timeout():
+		print("Explosion Incoming !!!")
+		if (!timerStarted) :	
+			$Timer.start()
+			timerStarted = true
 	
-	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
-		death()		
 
 
 func scaleBubble():
 	
-	self.scale = Vector2(1,1)*CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp*2	
+	sprite.scale = Vector2(1,1)*CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp*2	
+	
 
 func death():
 	
@@ -78,3 +82,10 @@ func shoot() :
 	
 	
 	pass
+
+
+func _on_timer_timeout() -> void:
+	
+	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
+		death()		 # Replace with function body.
+	timerStarted = false

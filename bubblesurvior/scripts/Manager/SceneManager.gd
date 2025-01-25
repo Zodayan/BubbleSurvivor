@@ -27,7 +27,7 @@ func clearLevel():
 	
 	for child in _tree.root.get_children() :
 		
-		if !(child.is_class("EnnemyManager")||child.is_class("PlayerManager")||child.is_class("WeaponManager")||child.is_class("SceneManager")) :
+		if !(child.is_class("EnnemyManager") or child.is_class("PlayerManager") or child.is_class("WeaponManager") or child.is_class("SceneManager")) :
 		
 			_tree.root.remove_child(child)
 			

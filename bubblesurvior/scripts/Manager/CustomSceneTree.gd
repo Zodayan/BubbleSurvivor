@@ -30,22 +30,14 @@ func _initialize():
 	
 	#Initialisation du LevelManager
 	_sceneManager = SceneManager.new()
-	root.add_child(_sceneManager)
-	_sceneManager._initialize()
 	
 	#Initialisation du PlayerManager
 	_playerManager = PlayerManager.new()
-	root.add_child(_playerManager)
-	_playerManager._initialize()
 	
 	_weaponManager = WeaponManager.new()
-	root.add_child(_weaponManager)
-	_weaponManager._initialize()
 	
 	_ennemyManager = EnnemyManager.new()
-	root.add_child(_ennemyManager)
-	_ennemyManager._initialize()
-
+	
 	startGame()
 	
 	print("Initialized:")
@@ -62,7 +54,20 @@ func _finalize():
 
 func startGame():
 	
+	#ReAdding Manager
 	
+	root.add_child(_sceneManager)
+	_sceneManager._initialize()
+	
+	root.add_child(_playerManager)
+	_playerManager._initialize()
+	
+	root.add_child(_weaponManager)
+	_weaponManager._initialize()
+	
+	root.add_child(_ennemyManager)
+	_ennemyManager._initialize()
+		
 	#Initialisation Joueur
 	_playerManager.resetStat()
 	
@@ -70,10 +75,12 @@ func startGame():
 	_playerManager.changeCharacter(player)
 	
 	#Initialisation de l'arme
-	var arme = ResourceLoader.load("res://scenes/pistolet.tscn").instantiate()
+	var arme = ResourceLoader.load("res://scenes/fusil_pompe.tscn").instantiate()
 	_weaponManager.changeWeapon(arme)
 	
 	#Initialisation des scénes de bases
+	
+	_sceneManager.addScene("res://scenes/map.tscn")
 	
 	var data : DL1 = DL1.new()
 	
