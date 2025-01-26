@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 	timer_dernier_tir += delta
 	
 	
-	
 # A ne pas toucher en avec héritage
 func tirer() -> void:
 	if timer_dernier_tir >= 1/vitesse_tir:

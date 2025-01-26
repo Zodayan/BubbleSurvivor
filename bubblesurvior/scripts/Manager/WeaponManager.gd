@@ -7,6 +7,7 @@ var _weapon : Weapon
 const listWeapon = [
 	"res://scenes/pistolet.tscn",
 	"res://scenes/fusil_pompe.tscn",
+	"res://scenes/bazooka.tscn",
 ]
 
 var currentWeapon : int = 0

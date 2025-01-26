@@ -12,6 +12,7 @@ func _init() -> void:
 	degats = 10
 	vitesse_tir = 1
 	cout_tir = 5
+	timer_dernier_tir = 1 / vitesse_tir
 
 func _process(delta: float) -> void:
 	super._process(delta)
