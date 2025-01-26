@@ -40,7 +40,10 @@ func _initialize():
 	
 	_ennemyManager = EnnemyManager.new()
 	
-	startGame()
+	root.add_child(_sceneManager)
+	_sceneManager._initialize()
+	
+	_sceneManager.addScene("res://scenes/start_screen.tscn")
 	
 	print("Initialized:")
 	print("  Starting time: %s" % str(time_elapsed))
