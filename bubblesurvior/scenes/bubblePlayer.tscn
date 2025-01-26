@@ -261,6 +261,7 @@ offset_top = 10.0
 offset_right = 110.0
 offset_bottom = 37.0
 theme = ExtResource("10_qyjtl")
+max_value = 250.0
 
 [node name="OverchargeBar" type="ProgressBar" parent="Control"]
 layout_mode = 1
