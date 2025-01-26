@@ -59,6 +59,7 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("prevWeapon"):
 		prevWeapon()
+		
 	
 func nextWeapon():
 	print("next")
@@ -73,6 +74,10 @@ func dealDamage(damage : float):
 	CustomSceneTree.getInstance()._playerManager.hp -= damage
 	if CustomSceneTree.getInstance()._playerManager.hp <= 0 :
 		death()
+	if CustomSceneTree.getInstance()._playerManager.hp <=100 and timerStarted :
+		timerStarted = false
+		$Timer.stop()	
+		
 	scaleBubble()
 	$Control.changeValue()
 	
