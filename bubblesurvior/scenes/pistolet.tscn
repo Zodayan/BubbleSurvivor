@@ -42,7 +42,19 @@ autoplay = "default"
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="pistolShoot" type="AudioStreamPlayer2D" parent="."]
+[node name="pistolShoot1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ryotk")
+
+[node name="pistolShoot2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ryotk")
+
+[node name="pistolShoot3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ryotk")
+
+[node name="pistolShoot4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ryotk")
+
+[node name="pistolShoot5" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ryotk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
