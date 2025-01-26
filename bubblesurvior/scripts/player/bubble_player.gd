@@ -9,6 +9,12 @@ var deplacementY: float = 0
 
 var timerStarted : bool = false
 
+var dash_skill_instance = Dash.new()
+
+var skill_list: Array = [dash_skill_instance]
+
+var is_invincible: bool = false
+
 func _initialize():
 	
 	scaleBubble()
@@ -59,7 +65,12 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("prevWeapon"):
 		prevWeapon()
+	
+	if Input.is_action_just_pressed("skill1"):
+		dash_skill_instance.dash()
 		
+	for skill in skill_list:
+		skill._process(_delta)
 	
 func nextWeapon():
 	print("next")
@@ -70,6 +81,8 @@ func prevWeapon():
 	CustomSceneTree.getInstance()._weaponManager.prevWeapon()
 
 func dealDamage(damage : float):
+	if is_invincible:
+		return
 	
 	CustomSceneTree.getInstance()._playerManager.hp -= damage
 	if CustomSceneTree.getInstance()._playerManager.hp <= 0 :
