@@ -83,7 +83,7 @@ func startGame():
 	_ennemyManager.resetSpawner()
 	_ennemyManager.listEnnemy = data.liste_ennemis
 	_ennemyManager.nbToKill = data.score_pour_boss
-	_ennemyManager.boss = "res://scenes/gros_michel.tscn"
+	_ennemyManager.boss = data.boss
 	
 	
 	
