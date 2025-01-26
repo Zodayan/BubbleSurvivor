@@ -87,5 +87,13 @@ frame_progress = 0.295565
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rdxld")
 
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="SkillTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
+[connection signal="timeout" from="SkillTimer" to="." method="_on_skill_timer_timeout"]
