@@ -1,14 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwbovqtbnsyih"]
+[gd_scene load_steps=7 format=3 uid="uid://dwjk4rbhgwdcv"]
 
 [ext_resource type="Script" path="res://scripts/bazooka.gd" id="1_3g7p4"]
 [ext_resource type="Texture2D" uid="uid://bnpqpwf1k57bs" path="res://assets/sprite/weapons/bazooka/bazookabase.png" id="2_uog43"]
 [ext_resource type="AudioStream" uid="uid://fhqdm7dpbe7l" path="res://assets/sounds/jsp/dash_peut_etre.mp3" id="3_wl7ls"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lxios"]
-atlas = ExtResource("2_uog43")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vde7"]
 atlas = ExtResource("2_uog43")
 region = Rect2(0, 0, 100, 100)
 
@@ -28,9 +24,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1vde7")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_6k7uf")
 }],
 "loop": true,
@@ -45,8 +38,8 @@ script = ExtResource("1_3g7p4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.22, 0.22)
 sprite_frames = SubResource("SpriteFrames_68yyb")
+animation = &"tir"
 autoplay = "default"
-frame_progress = 0.712939
 
 [node name="Timer" type="Timer" parent="."]
 
