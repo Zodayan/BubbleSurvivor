@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://scripts/enemies/gros_michel.gd" id="1_hg3ck"]
 [ext_resource type="Texture2D" uid="uid://b5e4xc05r2f1v" path="res://assets/sprite/ennemy/ennemy.png" id="2_plylw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
-size = Vector2(64, 74)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_tn035"]
 atlas = ExtResource("2_plylw")
 region = Rect2(0, 0, 32, 32)
@@ -42,17 +39,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
+size = Vector2(64, 66)
+
 [node name="Gros_michel" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_hg3ck")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_mal4w")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_jt3ey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mal4w")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
