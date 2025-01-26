@@ -36,7 +36,7 @@ func shootSpikes():
 	var envergure_tir = deg_to_rad(60)
 	
 	for i in range(nb_projectiles):
-		var nouveau_projectile: ProjectileFusilPompe = projectile_scene.instantiate()
+		var nouveau_projectile: ProjectileEnnemy = projectile_scene.instantiate()
 		var angle_projectile = (i - nb_projectiles/2) * envergure_tir / nb_projectiles
 		nouveau_projectile.arme_associee = self
 		nouveau_projectile.position = position
