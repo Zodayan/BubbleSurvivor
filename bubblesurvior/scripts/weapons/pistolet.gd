@@ -11,6 +11,13 @@ func _init() -> void:
 func _process(delta: float) -> void:
 	super._process(delta)
 	position.x += 10
+	
+	"""if direction.x > 0 :
+		pistolet.flip_h = true
+	if direction.x<0:
+		pistolet.flip_h = false
+"""
+	
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
 	timer.start(0.5)
