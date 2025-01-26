@@ -12,7 +12,9 @@ func _process(delta: float) -> void:
 	var player_sprite: AnimatedSprite2D = player.get_child(2)
 	position.x += player_sprite.global_scale[0] * player_sprite.scale.x / 2
 	timer_dernier_tir += delta
-
+	
+	
+	
 # A ne pas toucher en avec héritage
 func tirer() -> void:
 	if timer_dernier_tir >= 1/vitesse_tir:
