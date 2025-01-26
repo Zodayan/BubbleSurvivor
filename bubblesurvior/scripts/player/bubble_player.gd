@@ -3,6 +3,7 @@ class_name BubblePlayer
 
 @onready var timer = $Timer
 @onready var sprite = $BubbleSprite
+@onready var hitbox = $BubbleHitbox 
 
 var deplacementX: float = 0
 var deplacementY: float = 0
@@ -24,7 +25,10 @@ func _initialize():
 	#update de l'affichage du player
 	var direction = calculMovement()[0]
 	sprite.updateSprite(ratio, direction)	
+
+func _ready():
 	
+	scaleBubble()	
 
 func calculMovement() -> Vector2: 
 	# le mouvement sur l'axe des X
@@ -117,8 +121,8 @@ func scaleBubble():
 	var direction = calculMovement()[0]
 	var ratio = CustomSceneTree.getInstance()._playerManager.hp/CustomSceneTree.getInstance()._playerManager.maxHp
 	var spSize = sprite.updateSprite(ratio, direction)
-	sprite.scale = Vector2(1,1)*ratio*(6-spSize)
-	
+	sprite.scale = Vector2(1,1)*ratio*(6-spSize)*2
+	hitbox.scale = Vector2(1,1)*ratio*(6-spSize)*2
 	
 
 func death():
