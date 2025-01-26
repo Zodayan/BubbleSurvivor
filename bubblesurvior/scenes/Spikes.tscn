@@ -20,3 +20,5 @@ texture = ExtResource("2_pecdm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -2.49582
 shape = SubResource("CapsuleShape2D_118cv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
