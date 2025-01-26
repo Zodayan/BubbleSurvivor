@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/mort_oursin1.mp3-a4b64a00d281d15cd468edbc3871
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
