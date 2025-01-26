@@ -1,6 +1,8 @@
 extends Enemy
 class_name GrosMichel
 @onready var animatedbody =$AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
+@onready var SFX_node = $SFX
 
 var direction_x: float = 0
 var direction_y: float = 0
@@ -69,3 +71,16 @@ func _on_charge_timer_timeout() -> void:
 
 func _on_skill_timer_timeout() -> void:
 	isSkillActivated = false # Replace with function body.
+	
+func death() :
+	print("gros michel dead")
+	CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
+	var nouveau_heal: Heal = CustomSceneTree.getInstance()._sceneManager.addScene("res://scenes/heal.tscn")
+	nouveau_heal.position = position
+	animation_player.play("death_animation")
+	
+func play_sound() -> void:
+	var sound_list: Array = SFX_node.get_children()
+	var sound_node = sound_list.pick_random()
+	var sound: AudioStreamPlayer = sound_node
+	sound.play()
