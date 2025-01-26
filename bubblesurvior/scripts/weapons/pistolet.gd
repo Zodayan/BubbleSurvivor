@@ -9,7 +9,7 @@ class_name Pistolet
 func _init() -> void:
 	degats = 10
 	vitesse_tir = 5
-	cout_tir = 0.25
+	cout_tir = 1.5
 
 func _process(delta: float) -> void:
 	super._process(delta)

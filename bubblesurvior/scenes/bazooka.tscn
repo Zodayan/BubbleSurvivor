@@ -46,7 +46,7 @@ script = ExtResource("1_3g7p4")
 scale = Vector2(0.22, 0.22)
 sprite_frames = SubResource("SpriteFrames_68yyb")
 autoplay = "default"
-frame_progress = 0.00117637
+frame_progress = 0.712939
 
 [node name="Timer" type="Timer" parent="."]
 
