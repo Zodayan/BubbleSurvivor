@@ -20,7 +20,8 @@ func tirer() -> void:
 	if timer_dernier_tir >= 1/vitesse_tir:
 		timer_dernier_tir = 0
 		CustomSceneTree.getInstance()._playerManager.playerBody.dealDamage(cout_tir)
-		action_tirer()
+		if CustomSceneTree.getInstance()._playerManager.hp >0  :
+			action_tirer()
 	
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
