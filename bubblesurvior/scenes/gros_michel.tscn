@@ -1,11 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck4uh4bc1ltmf"]
+[gd_scene load_steps=13 format=3 uid="uid://ck4uh4bc1ltmf"]
 
 [ext_resource type="Script" path="res://scripts/enemies/gros_michel.gd" id="1_hg3ck"]
 [ext_resource type="Texture2D" uid="uid://be5uri10b4nha" path="res://assets/sprite/ennemy/bossoursin (1).png" id="2_o8is6"]
+[ext_resource type="Texture2D" uid="uid://cbt8vqjgms5ux" path="res://assets/sprite/ennemy/bossoursin.png" id="3_us3kx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwdpx"]
 atlas = ExtResource("2_o8is6")
 region = Rect2(0, 0, 80, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo7bl"]
+atlas = ExtResource("3_us3kx")
+region = Rect2(0, 0, 80, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdfgn"]
+atlas = ExtResource("3_us3kx")
+region = Rect2(0, 76, 80, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucdx5"]
+atlas = ExtResource("3_us3kx")
+region = Rect2(0, 152, 80, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc8ys"]
+atlas = ExtResource("3_us3kx")
+region = Rect2(0, 228, 80, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qugwd"]
+atlas = ExtResource("3_us3kx")
+region = Rect2(0, 304, 80, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wfdd"]
+atlas = ExtResource("3_us3kx")
+region = Rect2(0, 380, 80, 76)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jt3ey"]
 animations = [{
@@ -14,12 +39,36 @@ animations = [{
 "texture": SubResource("AtlasTexture_gwdpx")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"classique",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo7bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdfgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucdx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc8ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qugwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wfdd")
+}],
+"loop": true,
+"name": &"tape",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mal4w"]
-size = Vector2(64, 74)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdxld"]
+radius = 39.0
+height = 120.0
 
 [node name="bourssin" type="Area2D"]
 collision_layer = 4
@@ -27,12 +76,16 @@ collision_mask = 2
 script = ExtResource("1_hg3ck")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
+position = Vector2(0, -0.500002)
+scale = Vector2(1.5, 1.11842)
 sprite_frames = SubResource("SpriteFrames_jt3ey")
-animation = &"new_animation"
+animation = &"tape"
+autoplay = "classique"
+frame_progress = 0.270896
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_mal4w")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rdxld")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
