@@ -13,12 +13,15 @@ func _init() -> void:
 func _process(delta: float) -> void:
 	super._process(delta)
 	position.x += 10
-	
-	"""if direction.x > 0 :
+	var player_manager: PlayerManager = CustomSceneTree.getInstance()._playerManager
+	var player_direction: Vector2 = Vector2(player_manager.playerBody.deplacementX, player_manager.playerBody.deplacementY)
+	if player_direction[0] > 0 :
 		pistolet.flip_h = true
-	if direction.x<0:
+		position.x+=10
+	if player_direction[0]<0:
 		pistolet.flip_h = false
-	"""
+		position.x -=30
+
 	
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
