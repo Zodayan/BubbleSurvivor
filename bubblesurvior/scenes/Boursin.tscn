@@ -71,6 +71,7 @@ radius = 39.0
 height = 120.0
 
 [node name="Boursin" type="Area2D"]
+collision_layer = 5
 script = ExtResource("1_pho0u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

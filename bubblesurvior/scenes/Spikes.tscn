@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw6d3g7xk8j4q"]
+[gd_scene load_steps=4 format=3 uid="uid://hgysmqvwf0po"]
 
 [ext_resource type="Script" path="res://scripts/projectiles/projectileEnnemy.gd" id="1_yf5xe"]
 [ext_resource type="Texture2D" uid="uid://bj8t75rq4ww5f" path="res://assets/sprite/ennemy/pique.png" id="2_pecdm"]
