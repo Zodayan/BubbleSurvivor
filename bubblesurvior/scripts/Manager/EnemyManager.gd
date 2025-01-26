@@ -55,7 +55,20 @@ func _process(delta: float):
 						_spawnEnnemy(enemies[0])
 					inf = enemies[1]
 						
-					
+	if timeElapsed>delay*4 and isBoss :	
+		
+		var sum : float = 0
+		for ennemies in listEnnemy :
+			sum += ennemies[1]
+		if sum > 0 :
+			var res : float = randf_range(0, sum)
+			var inf : float = 0 
+				
+			for enemies in listEnnemy :
+						
+				if(res <= enemies[1]+inf && res > inf):
+					_spawnEnnemy(enemies[0])
+				inf = enemies[1]			
 
 func _spawnEnnemy(path : String):
 	var ennemy = ResourceLoader.load(path).instantiate()

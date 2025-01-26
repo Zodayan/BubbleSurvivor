@@ -1,6 +1,14 @@
 extends Enemy
 class_name GrosMichel
 @onready var animatedbody =$AnimatedSprite2D
+
+var direction_x: float = 0
+var direction_y: float = 0
+
+var isCharging : bool = false
+var isSkillActivated : bool = false
+
+
 func _init() -> void:
 	super._init()
 	vitesse = 20
@@ -9,6 +17,55 @@ func _init() -> void:
 	degats = 10
 	
 func _process(delta: float) -> void:
-	super._process(delta)
-	animatedbody.flip_v=false
-	animatedbody.play("tape")
+	
+	if isCharging :
+		
+		gerer_collision_joueur(delta)
+			
+	elif isSkillActivated :
+		
+		position.x += direction_x*delta*vitesse*10
+		position.y += direction_y*delta*vitesse*10
+		gerer_collision_joueur(delta)
+	
+	else :
+		
+		super._process(delta)
+		animatedbody.flip_v=false
+		animatedbody.play("tape")
+	
+		var posXJ = CustomSceneTree.getInstance()._playerManager.pos[0]
+		var posYJ = CustomSceneTree.getInstance()._playerManager.pos[1]
+		
+		var posXB = self.position[0]
+		var posYB = self.position[1]
+		
+		if sqrt(pow((posXB-posXJ),2)+pow((posYB-posYJ),2)) <= 400 :
+			
+			startCharge()
+		
+	
+	
+	
+func startCharge() :
+	
+	print("start charge")
+	direction = Vector2(CustomSceneTree.getInstance()._playerManager.pos - position)
+	direction_x = direction.normalized()[0]
+	direction_y = direction.normalized()[1]
+	$ChargeTimer.start()
+	isCharging = true
+	
+
+
+func _on_charge_timer_timeout() -> void:
+	
+	
+	print("start skill")
+	isCharging = false
+	isSkillActivated = true	
+	$SkillTimer.start()
+
+
+func _on_skill_timer_timeout() -> void:
+	isSkillActivated = false # Replace with function body.
