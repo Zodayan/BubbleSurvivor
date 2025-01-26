@@ -11,3 +11,4 @@ func _init() -> void:
 func _process(delta: float) -> void:
 	super._process(delta)
 	animatedbody.flip_v=false
+	animatedbody.play("tape")
