@@ -11,7 +11,7 @@ var envergure_tir = deg_to_rad(60)
 func _init() -> void:
 	degats = 10
 	vitesse_tir = 1
-	cout_tir = 4
+	cout_tir = 0.1
 
 func _process(delta: float) -> void:
 	super._process(delta)
