@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/enemies/gros_michel.gd" id="1_hg3ck"]
 [ext_resource type="Texture2D" uid="uid://d1mbuw5cv5ox5" path="res://assets/sprite/ennemy/rino.png" id="2_8uoqe"]
+[ext_resource type="AudioStream" uid="uid://cj8pq20t1txit" path="res://assets/sounds/mort_oursin/mort_oursin1.mp3" id="4_m1vad"]
+[ext_resource type="AudioStream" uid="uid://gpa2avw2fa2u" path="res://assets/sounds/mort_oursin/mort_oursin2.mp3" id="5_wrkq8"]
+[ext_resource type="AudioStream" uid="uid://7qsj6vxg2rbw" path="res://assets/sounds/mort_oursin/mort_oursin3.mp3" id="6_txfv7"]
+[ext_resource type="AudioStream" uid="uid://cnf0p6qa051jp" path="res://assets/sounds/mort_oursin/mort_oursin4.mp3" id="7_w5qhu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eccnv"]
 atlas = ExtResource("2_8uoqe")
@@ -158,6 +162,95 @@ animations = [{
 radius = 24.0
 height = 194.0
 
+[sub_resource type="Animation" id="Animation_6ywap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wbg7y"]
+resource_name = "death_animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m4st"]
+_data = {
+"RESET": SubResource("Animation_6ywap"),
+"death_animation": SubResource("Animation_wbg7y")
+}
+
 [node name="bourssin" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
@@ -179,6 +272,25 @@ wait_time = 0.8
 one_shot = true
 
 [node name="SkillTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7m4st")
+}
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+
+[node name="MortOursin2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_wrkq8")
+
+[node name="MortOursin3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_txfv7")
+
+[node name="MortOursin4" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_w5qhu")
+
+[node name="MortOursin1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_m1vad")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
