@@ -16,7 +16,7 @@ var killCount : int = 0
 
 var nbToKill : int = 1000
 
-var delay : float = 1
+var delay : float = 0.5
 
 var timeElapsed : float =0
 
@@ -93,4 +93,5 @@ func resetSpawner():
 	isBoss = false;
 	
 func bossKilled(boss: Boss):
-	pass
+	_tree.score = killCount
+	_tree.win()

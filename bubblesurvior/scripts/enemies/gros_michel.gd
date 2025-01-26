@@ -1,6 +1,8 @@
 extends Enemy
 class_name GrosMichel
 @onready var animatedbody =$AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
+@onready var SFX_node = $SFX
 
 var direction_x: float = 0
 var direction_y: float = 0
@@ -17,19 +19,22 @@ func _init() -> void:
 	degats = 10
 	
 func _process(delta: float) -> void:
-	
+	if direction_x > 0:
+		animatedbody.flip_h = false
+	elif direction_x <0 :
+		animatedbody.flip_h=true
 	if isCharging :
-		
+		animatedbody.play("stop")
 		gerer_collision_joueur(delta)
 			
 	elif isSkillActivated :
-		
+		animatedbody.play("fonce")
 		position.x += direction_x*delta*vitesse*10
 		position.y += direction_y*delta*vitesse*10
 		gerer_collision_joueur(delta)
 	
 	else :
-		
+		animatedbody.play("default")
 		super._process(delta)
 		animatedbody.flip_v=false
 		animatedbody.play("tape")
@@ -69,3 +74,16 @@ func _on_charge_timer_timeout() -> void:
 
 func _on_skill_timer_timeout() -> void:
 	isSkillActivated = false # Replace with function body.
+	
+func death() :
+	print("gros michel dead")
+	CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
+	var nouveau_heal: Heal = CustomSceneTree.getInstance()._sceneManager.addScene("res://scenes/heal.tscn")
+	nouveau_heal.position = position
+	animation_player.play("death_animation")
+	
+func play_sound() -> void:
+	var sound_list: Array = SFX_node.get_children()
+	var sound_node = sound_list.pick_random()
+	var sound: AudioStreamPlayer = sound_node
+	sound.play()

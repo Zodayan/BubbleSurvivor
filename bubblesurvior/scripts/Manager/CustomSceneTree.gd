@@ -17,6 +17,8 @@ static var _instance : CustomSceneTree
 
 var time_elapsed : float = 0
 
+var score : int = 0
+
 #Méthode permettant d'accéder à la GameLoop
 static func getInstance():
 	
@@ -90,3 +92,8 @@ func startGame():
 func gameOver():
 	_sceneManager.clearLevel()
 	_sceneManager.addScene("res://scenes/DeathMenu.tscn")
+
+func win():
+	_sceneManager.clearLevel()
+	_sceneManager.addScene("res://scenes/Menu_Win.tscn")
+	self.root.get_node("MenuWin").initStat(time_elapsed,score)
