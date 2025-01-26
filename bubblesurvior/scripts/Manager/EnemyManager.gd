@@ -90,7 +90,7 @@ func resetSpawner():
 	killCount = 0
 	timeElapsed = 0
 	wave = []
-	delay = 1
+	delay = 0.5
 	isBoss = false;
 	
 func bossKilled(boss: Boss):
