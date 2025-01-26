@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6u1qheu25upo"]
+[gd_scene load_steps=2 format=3 uid="uid://du0358e83kxcc"]
 
 [ext_resource type="Script" path="res://scripts/menu/start_screen.gd" id="1_stgbl"]
 
@@ -77,5 +77,8 @@ déplacement :
 	- bas : s ou fleche bas
 	- droite : d ou fleche droite"
 editable = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(347, 326)
 
 [connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
