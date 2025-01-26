@@ -19,19 +19,22 @@ func _init() -> void:
 	degats = 10
 	
 func _process(delta: float) -> void:
-	
+	if direction_x > 0:
+		animatedbody.flip_h = false
+	elif direction_x <0 :
+		animatedbody.flip_h=true
 	if isCharging :
-		
+		animatedbody.play("stop")
 		gerer_collision_joueur(delta)
 			
 	elif isSkillActivated :
-		
+		animatedbody.play("fonce")
 		position.x += direction_x*delta*vitesse*10
 		position.y += direction_y*delta*vitesse*10
 		gerer_collision_joueur(delta)
 	
 	else :
-		
+		animatedbody.play("default")
 		super._process(delta)
 		animatedbody.flip_v=false
 		animatedbody.play("tape")

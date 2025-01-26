@@ -3,11 +3,7 @@ extends Weapon
 @onready var projectile_scene = preload("res://scenes/projectile_simple.tscn")
 @onready var pistolet = $AnimatedSprite2D
 @onready var timer = $Timer
-@onready var pistol_sound1 = $pistolShoot1
-@onready var pistol_sound2 = $pistolShoot2
-@onready var pistol_sound3 = $pistolShoot3
-@onready var pistol_sound4 = $pistolShoot4
-@onready var pistol_sound5 = $pistolShoot5
+@onready var pistolSound = $pistolSound
 
 func _init() -> void:
 	degats = 10
@@ -22,25 +18,15 @@ func _process(delta: float) -> void:
 		pistolet.flip_h = true
 	if direction.x<0:
 		pistolet.flip_h = false
-"""
+	"""
 	
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
 	timer.start(0.5)
 	pistolet.play("tape")
 	
-	var rng = randi_range(0, 4)
-	if (rng == 0):
-		pistol_sound1.play()
-	elif (rng == 1):
-		pistol_sound2.play()
-	elif (rng == 1):
-		pistol_sound3.play()
-	elif (rng == 1):
-		pistol_sound4.play()
-	else :
-		pistol_sound5.play()
-	
+	pistolSound.get_children().pick_random().play()
+
 	var scene_manager: SceneManager = CustomSceneTree.getInstance()._sceneManager
 	var player_manager: PlayerManager = CustomSceneTree.getInstance()._playerManager
 	var enemy_manager: EnnemyManager = CustomSceneTree.getInstance()._ennemyManager

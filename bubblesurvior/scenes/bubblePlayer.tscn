@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dv51kh4el31"]
+[gd_scene load_steps=44 format=3 uid="uid://dv51kh4el31"]
 
 [ext_resource type="Script" path="res://scripts/player/bubble_player.gd" id="1_afnlq"]
 [ext_resource type="Texture2D" uid="uid://cjlj11mad05qr" path="res://assets/sprite/Coloured/48x48/bubble_48px_4x1_left.png" id="2_bkdug"]
@@ -11,6 +11,12 @@
 [ext_resource type="Script" path="res://scenes/bubble_sprite.gd" id="8_yu85p"]
 [ext_resource type="Theme" uid="uid://cbj6qmy8xdtnn" path="res://assets/Styles/HealthBarClassic.tres" id="10_qyjtl"]
 [ext_resource type="Theme" uid="uid://bgj2klwsuoj53" path="res://assets/Styles/HealthBarYellow.tres" id="11_0sf16"]
+[ext_resource type="AudioStream" uid="uid://ceh02ieul676j" path="res://assets/sounds/step_sound/step1.mp3" id="12_6bacv"]
+[ext_resource type="AudioStream" uid="uid://d4jyfxn28okii" path="res://assets/sounds/step_sound/step2.mp3" id="13_jtt2f"]
+[ext_resource type="AudioStream" uid="uid://c1c2gmkj1s7v" path="res://assets/sounds/step_sound/step3.mp3" id="14_wq62l"]
+[ext_resource type="AudioStream" uid="uid://dsi4ym0ix4ulu" path="res://assets/sounds/step_sound/step4.mp3" id="15_ldhru"]
+[ext_resource type="AudioStream" uid="uid://tmd5iem8pc42" path="res://assets/sounds/step_sound/step5.mp3" id="16_xk73e"]
+[ext_resource type="AudioStream" uid="uid://d1aqdybhb2hvy" path="res://assets/sounds/step_sound/step6.mp3" id="17_p7xgr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0so4"]
 radius = 21.0
@@ -265,5 +271,25 @@ offset_bottom = 37.0
 theme = ExtResource("11_0sf16")
 max_value = 20.0
 show_percentage = false
+
+[node name="BubbleWalkNoise" type="Node" parent="."]
+
+[node name="BubbleWalkNoise1" type="AudioStreamPlayer2D" parent="BubbleWalkNoise"]
+stream = ExtResource("12_6bacv")
+
+[node name="BubbleWalkNoise2" type="AudioStreamPlayer2D" parent="BubbleWalkNoise"]
+stream = ExtResource("13_jtt2f")
+
+[node name="BubbleWalkNoise3" type="AudioStreamPlayer2D" parent="BubbleWalkNoise"]
+stream = ExtResource("14_wq62l")
+
+[node name="BubbleWalkNoise4" type="AudioStreamPlayer2D" parent="BubbleWalkNoise"]
+stream = ExtResource("15_ldhru")
+
+[node name="BubbleWalkNoise5" type="AudioStreamPlayer2D" parent="BubbleWalkNoise"]
+stream = ExtResource("16_xk73e")
+
+[node name="BubbleWalkNoise6" type="AudioStreamPlayer2D" parent="BubbleWalkNoise"]
+stream = ExtResource("17_p7xgr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
