@@ -2,6 +2,7 @@ extends Weapon
 class_name FusilPompe
 
 @onready var projectile_scene = preload("res://scenes/projectile_fusil_pompe.tscn")
+@onready var shoot_sound = $shootSound
 
 var nb_projectiles = 5
 var envergure_tir = deg_to_rad(60)
@@ -23,6 +24,8 @@ func _process(delta: float) -> void:
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
 	
+	
+	shoot_sound.play()
 	var player_manager: PlayerManager = CustomSceneTree.getInstance()._playerManager
 	var ennemi_plus_proche: Enemy = CustomSceneTree.getInstance()._ennemyManager._nearest_enemy(player_manager.pos)
 	var direction_initiale_projectile: Vector2

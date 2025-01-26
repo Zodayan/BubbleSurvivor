@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c15oj07mpovfs"]
+[gd_scene load_steps=4 format=3 uid="uid://c15oj07mpovfs"]
 
 [ext_resource type="Script" path="res://scripts/weapons/fusil_pompe.gd" id="1_mohbn"]
 [ext_resource type="Texture2D" uid="uid://ci8raj42y0osn" path="res://assets/sprite/weapons/pompe/pompe.png" id="2_w011h"]
+[ext_resource type="AudioStream" uid="uid://wj2fvun6lbwe" path="res://assets/sounds/shotgun_swoop/swoop1.mp3" id="3_rkmr8"]
 
 [node name="fusil_pompe" type="Node2D"]
 script = ExtResource("1_mohbn")
@@ -10,4 +11,5 @@ script = ExtResource("1_mohbn")
 z_index = 10
 texture = ExtResource("2_w011h")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="shootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rkmr8")

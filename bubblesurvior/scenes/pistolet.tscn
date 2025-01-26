@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpbt4tp0o128c"]
+[gd_scene load_steps=7 format=3 uid="uid://cpbt4tp0o128c"]
 
 [ext_resource type="Script" path="res://scripts/weapons/pistolet.gd" id="1_0oqcf"]
 [ext_resource type="Texture2D" uid="uid://bqv35ev0pnmyg" path="res://assets/sprite/weapons/pistolet/armespistolet.png" id="2_vjgdh"]
+[ext_resource type="AudioStream" uid="uid://codwcr44j86qs" path="res://assets/sounds/pop_sounds/pop1.mp3" id="3_ryotk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ro6gm"]
 atlas = ExtResource("2_vjgdh")
@@ -40,5 +41,8 @@ animation = &"tape"
 autoplay = "default"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="pistolShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ryotk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
