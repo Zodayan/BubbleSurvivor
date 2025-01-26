@@ -64,7 +64,7 @@ func _physics_process(_delta):
 	
 	noiseTimer += _delta
 	if velocity[0] != 0 or velocity[1] != 0 :
-		if noiseTimer > 0.3 :
+		if noiseTimer > 0.4 :
 			noiseTimer = 0
 			walkNoise.get_children().pick_random().play()
 	

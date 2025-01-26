@@ -229,7 +229,7 @@ collision_mask = 21
 script = ExtResource("1_afnlq")
 
 [node name="BubbleCamera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 
 [node name="BubbleHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k0so4")
@@ -247,11 +247,14 @@ one_shot = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = -288.0
-offset_top = -161.0
-offset_right = 289.0
-offset_bottom = 162.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -385.0
+offset_top = -214.0
+offset_right = 382.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3_ouqjc")
 
 [node name="hpBar" type="ProgressBar" parent="Control"]
