@@ -1,7 +1,7 @@
 extends Area2D
 class_name Heal
 
-const valeur_heal = 5
+const valeur_heal = 10
 @onready var timerleft = $Timer
 
 
