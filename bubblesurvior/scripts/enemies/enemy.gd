@@ -57,8 +57,6 @@ func gerer_deplacement(delta: float) -> void:
 	if direction_y < 0:
 		fleche_ennemy.flip_v =false
 	
-	
-	
 	position.x += direction_x
 	position.y += direction_y
 	

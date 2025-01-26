@@ -69,3 +69,4 @@ rotation = -0.785398
 shape = SubResource("CapsuleShape2D_j40wf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
