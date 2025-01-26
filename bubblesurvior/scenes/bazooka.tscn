@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwjk4rbhgwdcv"]
+[gd_scene load_steps=7 format=3 uid="uid://cwbovqtbnsyih"]
 
 [ext_resource type="Script" path="res://scripts/bazooka.gd" id="1_3g7p4"]
 [ext_resource type="Texture2D" uid="uid://bnpqpwf1k57bs" path="res://assets/sprite/weapons/bazooka/bazookabase.png" id="2_uog43"]

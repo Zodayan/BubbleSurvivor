@@ -41,7 +41,7 @@ func death():
 	if not dead:
 		dead = true
 		CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
-		if randf() < 0.25:
+		if randf() < 0.4:
 			var nouveau_heal: Heal = CustomSceneTree.getInstance()._sceneManager.addScene("res://scenes/heal.tscn")
 			nouveau_heal.position = position
 		queue_free()
