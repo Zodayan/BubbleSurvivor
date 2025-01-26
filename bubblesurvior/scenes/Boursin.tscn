@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvwkselnat6y1"]
+
+[ext_resource type="Script" path="res://scenes/boursin.gd" id="1_pho0u"]
+[ext_resource type="Texture2D" uid="uid://be5uri10b4nha" path="res://assets/sprite/ennemy/bossoursin (1).png" id="2_1riwi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwdpx"]
+atlas = ExtResource("2_1riwi")
+region = Rect2(0, 0, 80, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clhjl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwdpx")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpu0y"]
+size = Vector2(64, 74)
+
+[node name="Boursin" type="Area2D"]
+script = ExtResource("1_pho0u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_clhjl")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lpu0y")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

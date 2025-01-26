@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		pistolet.flip_h = true
 	if direction.x<0:
 		pistolet.flip_h = false
-	"""
+"""
 	
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
