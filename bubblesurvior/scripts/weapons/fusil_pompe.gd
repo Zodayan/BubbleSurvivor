@@ -4,6 +4,7 @@ class_name FusilPompe
 @onready var projectile_scene = preload("res://scenes/projectile_fusil_pompe.tscn")
 @onready var shoot_sound1 = $shootSound1
 @onready var shoot_sound2 = $shootSound2
+@onready var pompe = $Sprite2D
 
 var nb_projectiles = 10
 var envergure_tir = deg_to_rad(60)
