@@ -47,3 +47,5 @@ autoplay = "default"
 
 [node name="DashPeutEtre" type="AudioStreamPlayer" parent="bazooka_sound"]
 stream = ExtResource("3_wl7ls")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
