@@ -34,12 +34,13 @@ func _process(delta: float):
 		
 		timeElapsed = 0
 	
-		if killCount>nbToKill && !isBoss:
+		if killCount>nbToKill and !isBoss:
 			
 			_spawnBoss(boss)
+			print("boss")
 			isBoss = true
 				
-		else :
+		elif !isBoss  :
 			
 			var sum : float = 0
 			for ennemies in listEnnemy :
@@ -92,3 +93,6 @@ func resetSpawner():
 	timeElapsed = 0
 	wave = []
 	isBoss = false;
+	
+func bossKilled(boss: Boss):
+	pass

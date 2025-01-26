@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hgysmqvwf0po"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/projectileEnnemy.gd" id="1_yf5xe"]
+[ext_resource type="Texture2D" uid="uid://bj8t75rq4ww5f" path="res://assets/sprite/ennemy/pique.png" id="2_pecdm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_118cv"]
+radius = 1.0
+height = 8.0
+
+[node name="Spikes" type="Area2D"]
+script = ExtResource("1_yf5xe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -3.85892
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_pecdm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_118cv")
