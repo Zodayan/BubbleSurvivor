@@ -250,7 +250,16 @@ script = ExtResource("3_ouqjc")
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 130.0
-offset_bottom = 25.0
+offset_right = 110.0
+offset_bottom = 37.0
+
+[node name="OverchargeBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 37.0
+max_value = 20.0
+show_percentage = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
