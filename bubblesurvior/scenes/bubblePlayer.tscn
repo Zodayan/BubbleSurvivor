@@ -13,7 +13,7 @@
 [ext_resource type="Theme" uid="uid://bgj2klwsuoj53" path="res://assets/Styles/HealthBarYellow.tres" id="11_0sf16"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0so4"]
-radius = 26.0192
+radius = 21.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lu4y1"]
 atlas = ExtResource("2_bkdug")
@@ -219,7 +219,7 @@ animations = [{
 [node name="BubblePlayer" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_afnlq")
 
 [node name="BubbleCamera" type="Camera2D" parent="."]
