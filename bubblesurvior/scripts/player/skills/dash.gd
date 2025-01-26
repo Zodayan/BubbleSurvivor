@@ -9,7 +9,6 @@ var base_player_speed: float = 0
 
 func dash() -> void:
 	if not is_dashing:
-		print("dashing")
 		var player: BubblePlayer = CustomSceneTree.getInstance()._playerManager.playerBody
 		is_dashing = true
 		distance = 0
