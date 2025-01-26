@@ -255,7 +255,7 @@ offset_bottom = 162.0
 script = ExtResource("3_ouqjc")
 
 [node name="hpBar" type="ProgressBar" parent="Control"]
-layout_mode = 0
+layout_mode = 1
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 110.0
@@ -263,7 +263,7 @@ offset_bottom = 37.0
 theme = ExtResource("10_qyjtl")
 
 [node name="OverchargeBar" type="ProgressBar" parent="Control"]
-layout_mode = 0
+layout_mode = 1
 offset_left = 120.0
 offset_top = 10.0
 offset_right = 200.0

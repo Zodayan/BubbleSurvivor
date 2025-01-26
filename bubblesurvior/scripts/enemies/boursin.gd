@@ -4,12 +4,14 @@ var delay = 2
 var timeSinceAttack = 0
 @onready var projectile_scene = preload("res://scenes/Spikes.tscn")
 @onready var anoime = $AnimatedSprite2D
+@onready var life = $ProgressBar
+
 func _init() -> void:
 	super._init()
-	vitesse = 40
-	pv_max = 250
+	vitesse = 60
+	pv_max = 500
 	pv = pv_max
-	degats = 15
+	degats = 20
 
 func _process(delta: float) -> void:
 	anoime.play("tape")
@@ -29,6 +31,8 @@ func _process(delta: float) -> void:
 		if  timeSinceAttack >= delay :
 			timeSinceAttack = 0	
 			shootSpikes()
+			
+	life.value = pv 
 
 func shootSpikes():
 	

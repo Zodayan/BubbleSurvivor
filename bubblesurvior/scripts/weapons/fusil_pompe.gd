@@ -4,24 +4,28 @@ class_name FusilPompe
 @onready var projectile_scene = preload("res://scenes/projectile_fusil_pompe.tscn")
 @onready var shoot_sound1 = $shootSound1
 @onready var shoot_sound2 = $shootSound2
-
+@onready var pompe =$Sprite2D
 var nb_projectiles = 5
 var envergure_tir = deg_to_rad(60)
 
 func _init() -> void:
 	degats = 10
 	vitesse_tir = 1
-	cout_tir = 4
+	cout_tir = 0.1
 
 func _process(delta: float) -> void:
 	super._process(delta)
 	position.x +=10
-	
-	"""if direction.x > 0 :
-		pistolet.flip_h = true
-	if direction.x<0:
-		pistolet.flip_h = false
-"""
+	pompe.flip_h = false
+
+	var player_manager: PlayerManager = CustomSceneTree.getInstance()._playerManager
+	var player_direction: Vector2 = Vector2(player_manager.playerBody.deplacementX, player_manager.playerBody.deplacementY)
+	if player_direction[0] > 0 :
+		pompe.flip_h = false
+		position.x+=10
+	if player_direction[0]<0:
+		pompe.flip_h = true
+		position.x -=30
 # A potentiellement toucher avec héritage
 func action_tirer() -> void:
 	
