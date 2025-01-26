@@ -3,7 +3,7 @@ extends Boss
 var delay = 2
 var timeSinceAttack = 0
 @onready var projectile_scene = preload("res://scenes/Spikes.tscn")
-
+@onready var anoime = $AnimatedSprite2D
 func _init() -> void:
 	super._init()
 	vitesse = 40
@@ -12,13 +12,13 @@ func _init() -> void:
 	degats = 15
 
 func _process(delta: float) -> void:
-	
+	anoime.play("tape")
 	timeSinceAttack+=delta
 	
 	gerer_deplacement(delta)
 	
 	gerer_collision_joueur(delta)
-	
+	anoime.flip_v=false
 	var posXJ = CustomSceneTree.getInstance()._playerManager.pos[0]
 	var posYJ = CustomSceneTree.getInstance()._playerManager.pos[1]
 	
