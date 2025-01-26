@@ -5,13 +5,13 @@ class_name FusilPompe
 @onready var shoot_sound1 = $shootSound1
 @onready var shoot_sound2 = $shootSound2
 
-var nb_projectiles = 5
+var nb_projectiles = 10
 var envergure_tir = deg_to_rad(60)
 
 func _init() -> void:
 	degats = 10
 	vitesse_tir = 1
-	cout_tir = 4
+	cout_tir = 5
 
 func _process(delta: float) -> void:
 	super._process(delta)

@@ -4,6 +4,7 @@ class_name Dash
 var is_dashing: bool = false
 const MAX_DIST: float = 300
 const DASH_SPEED = MAX_DIST
+const COST_PERCENTAGE = 10
 var distance: float = 0
 var base_player_speed: float = 0
 
@@ -13,7 +14,7 @@ func dash() -> void:
 		is_dashing = true
 		distance = 0
 		base_player_speed = CustomSceneTree.getInstance()._playerManager.speed
-		player.dealDamage(CustomSceneTree.getInstance()._playerManager.maxHp * 20 / 100)
+		player.dealDamage(CustomSceneTree.getInstance()._playerManager.maxHp * COST_PERCENTAGE / 100)
 		player.is_invincible = true
 		CustomSceneTree.getInstance()._playerManager.speed += DASH_SPEED
 	pass

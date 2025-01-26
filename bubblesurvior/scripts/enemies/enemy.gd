@@ -11,6 +11,7 @@ var direction: Vector2 = Vector2(1, 0)
 var is_collision_joueur: bool = false
 var timer_collision: float = 0
 var player_body: BubblePlayer
+var dead: bool = false
 @onready var fleche_ennemy = $AnimatedSprite2D
 
 func _init() -> void:
@@ -37,11 +38,13 @@ func heal(heal_value: float):
 		pv = pv_max
 		
 func death():
-	CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
-	if randf() < 0.25:
-		var nouveau_heal: Heal = CustomSceneTree.getInstance()._sceneManager.addScene("res://scenes/heal.tscn")
-		nouveau_heal.position = position
-	queue_free()
+	if not dead:
+		dead = true
+		CustomSceneTree.getInstance()._ennemyManager._ennemyKilled(self)
+		if randf() < 0.25:
+			var nouveau_heal: Heal = CustomSceneTree.getInstance()._sceneManager.addScene("res://scenes/heal.tscn")
+			nouveau_heal.position = position
+		queue_free()
 	
 func gerer_deplacement(delta: float) -> void:
 	# Par défaut les ennemis vont tout droit vers le joueur
