@@ -1,29 +1,78 @@
-[gd_scene format=3 uid="uid://b6u1qheu25upo"]
+[gd_scene load_steps=2 format=3 uid="uid://b6u1qheu25upo"]
+
+[ext_resource type="Script" path="res://scripts/menu/start_screen.gd" id="1_stgbl"]
 
 [node name="start screen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_left = -0.001
+anchor_right = -0.001
+offset_left = -335.848
+offset_top = -590.0
+offset_right = 335.152
+offset_bottom = 114.0
+script = ExtResource("1_stgbl")
 
 [node name="Close" type="Button" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -6.0
-offset_right = 49.0
-offset_bottom = 25.0
-text = "Close"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.534
+anchor_right = 0.534
+offset_left = -144.314
+offset_top = 518.0
+offset_right = 120.686
+offset_bottom = 592.0
+action_mode = 0
+text = "Fermer"
 
 [node name="hello" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = -5.0
-offset_top = 9.0
-offset_right = 3.0
-offset_bottom = 17.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -296.5
+offset_top = 94.0
+offset_right = 322.5
+offset_bottom = 229.0
+grow_horizontal = 2
+text = "Bienvenue dans BubbleSurvivor ! 
+Tester vos capacité en survivant le plus longtemps possible
+ face à de nombreux ennemies :) "
+
+[node name="Commandespécial" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.002
+anchor_right = 0.5
+anchor_bottom = -0.002
+offset_left = 4.5
+offset_top = 281.408
+offset_right = 314.5
+offset_bottom = 480.408
+text = "Commandes spécial : 
+Armes : 
+	- Utilisation : space ou clique gauche
+	- arme suivante : e ou clique droit
+	- arme précédente : a
+Skills :
+	- Dash : 1(&)"
 
 [node name="Commande" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 18.0
-offset_top = -1.0
-offset_right = 26.0
-offset_bottom = 7.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.002
+anchor_right = 0.5
+anchor_bottom = -0.002
+offset_left = -294.5
+offset_top = 281.408
+offset_right = -2.5
+offset_bottom = 476.408
+text = "Commandes : 
+déplacement : 
+	- haut : z ou fleche haut
+	- gauche : q ou fleche gauche
+	- bas : s ou fleche bas
+	- droite : d ou fleche droite"
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
