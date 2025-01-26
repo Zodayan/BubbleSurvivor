@@ -93,4 +93,5 @@ func resetSpawner():
 	isBoss = false;
 	
 func bossKilled(boss: Boss):
-	pass
+	_tree.score = killCount
+	_tree.win()
