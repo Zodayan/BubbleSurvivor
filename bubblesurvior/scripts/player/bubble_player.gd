@@ -74,6 +74,7 @@ func dealDamage(damage : float):
 	if CustomSceneTree.getInstance()._playerManager.hp <= 0 :
 		death()
 	scaleBubble()
+	$Control.changeValue()
 	
 func heal(healValue : float):
 	
@@ -81,7 +82,7 @@ func heal(healValue : float):
 	if CustomSceneTree.getInstance()._playerManager.hp >= CustomSceneTree.getInstance()._playerManager.maxHp :
 		overcharge()
 	scaleBubble()
-	#Modifier barre de vie ?
+	$Control.changeValue()
 
 func overcharge():
 	
