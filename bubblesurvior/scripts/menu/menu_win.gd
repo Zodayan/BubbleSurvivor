@@ -3,7 +3,7 @@ extends Control
 func initStat(time : float, score : int) :
 	
 	$score.text = "Ennemy killed : "+str(score)
-	$time.text = "Time : "+str(time)
+	$time.text = "Time : "+str(int(time))
 
 func _on_restart_pressed() -> void:
 	CustomSceneTree.getInstance().startGame()
