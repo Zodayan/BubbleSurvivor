@@ -39,7 +39,7 @@ func _process(delta: float):
 			_spawnBoss(boss)
 			print("boss")
 			isBoss = true
-			delay = delay*4
+			delay = delay*6
 				
 		var sum : float = 0
 		for ennemies in listEnnemy :
@@ -90,6 +90,7 @@ func resetSpawner():
 	killCount = 0
 	timeElapsed = 0
 	wave = []
+	delay = 1
 	isBoss = false;
 	
 func bossKilled(boss: Boss):
