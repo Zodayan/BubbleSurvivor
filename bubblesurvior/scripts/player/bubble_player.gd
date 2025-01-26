@@ -5,9 +5,12 @@ class_name BubblePlayer
 @onready var sprite = $BubbleSprite
 @onready var hitbox = $BubbleHitbox 
 
+@onready var walkNoise = $BubbleWalkNoise
+
 var deplacementX: float = 0
 var deplacementY: float = 0
 
+var noiseTimer : float = 0
 var timerStarted : bool = false
 
 var dash_skill_instance = Dash.new()
@@ -58,6 +61,13 @@ func _physics_process(_delta):
 	
 	velocity = movement.normalized()*speed;
 	 #normalized-> vitesse constante meme en diagonale
+	
+	noiseTimer += _delta
+	if velocity[0] != 0 or velocity[1] != 0 :
+		if noiseTimer > 0.3 :
+			noiseTimer = 0
+			walkNoise.get_children().pick_random().play()
+	
 	move_and_slide();
 	CustomSceneTree.getInstance()._playerManager.pos = self.position
 	
