@@ -4,14 +4,15 @@ class_name FusilPompe
 @onready var projectile_scene = preload("res://scenes/projectile_fusil_pompe.tscn")
 @onready var shoot_sound1 = $shootSound1
 @onready var shoot_sound2 = $shootSound2
-@onready var pompe =$Sprite2D
-var nb_projectiles = 5
+
+var nb_projectiles = 10
 var envergure_tir = deg_to_rad(60)
 
 func _init() -> void:
 	degats = 10
 	vitesse_tir = 1
-	cout_tir = 0.1
+	cout_tir = 5
+	timer_dernier_tir = 1 / vitesse_tir
 
 func _process(delta: float) -> void:
 	super._process(delta)
