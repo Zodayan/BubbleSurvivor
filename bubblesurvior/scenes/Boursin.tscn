@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvwkselnat6y1"]
 
-[ext_resource type="Script" path="res://scenes/boursin.gd" id="1_pho0u"]
+[ext_resource type="Script" path="res://scripts/enemies/boursin.gd" id="1_pho0u"]
 [ext_resource type="Texture2D" uid="uid://be5uri10b4nha" path="res://assets/sprite/ennemy/bossoursin (1).png" id="2_1riwi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwdpx"]
