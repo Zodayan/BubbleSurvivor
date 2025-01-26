@@ -8,10 +8,10 @@ var timeSinceAttack = 0
 
 func _init() -> void:
 	super._init()
-	vitesse = 40
-	pv_max = 250
+	vitesse = 60
+	pv_max = 500
 	pv = pv_max
-	degats = 15
+	degats = 20
 
 func _process(delta: float) -> void:
 	anoime.play("tape")
