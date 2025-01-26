@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://du0358e83kxcc"]
+[gd_scene load_steps=2 format=3 uid="uid://b6u1qheu25upo"]
 
 [ext_resource type="Script" path="res://scripts/menu/start_screen.gd" id="1_stgbl"]
 
@@ -37,6 +37,7 @@ grow_horizontal = 2
 text = "Bienvenue dans BubbleSurvivor ! 
 Tester vos capacité en survivant le plus longtemps possible
  face à de nombreux ennemies :) "
+editable = false
 
 [node name="Commandespécial" type="TextEdit" parent="."]
 layout_mode = 1
@@ -56,6 +57,7 @@ Armes :
 	- arme précédente : a
 Skills :
 	- Dash : 1(&)"
+editable = false
 
 [node name="Commande" type="TextEdit" parent="."]
 layout_mode = 1
@@ -74,6 +76,7 @@ déplacement :
 	- gauche : q ou fleche gauche
 	- bas : s ou fleche bas
 	- droite : d ou fleche droite"
+editable = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(347, 326)
